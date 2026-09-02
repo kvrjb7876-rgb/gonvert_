@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview — GONVERT Renewable Energy</title>
+  <meta name="description" content="GONVERT Renewable Energy is an independent renewable energy EPCM and advisory partner — who we are, our integrated approach, and how we fit into the GONVERT ecosystem." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    #about { background: var(--paper); }
+    .disc-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem, 6vw, 5.5rem); align-items: start; }
+    .disc-highlight { font-family: var(--f-display); font-weight: 440; font-size: clamp(1.5rem, 2.9vw, 2.2rem); line-height: 1.26; letter-spacing: -0.024em; color: var(--ink); position: sticky; top: calc(var(--header-h) + 2rem); }
+    .disc-highlight em { font-style: normal; color: var(--accent-ink); }
+    .disc-body p { color: var(--muted); font-size: 1.07rem; margin-bottom: 1.2rem; }
+    .disc-body p:last-child { margin-bottom: 0; }
+    .disc-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.4rem; }
+    .pillar { border-top: 1px solid var(--line-2); padding-top: 1rem; }
+    .pillar .k { font-family: var(--f-label); font-weight: 600; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); }
+    .pillar p { font-size: .92rem; color: var(--muted); margin-top: .5rem; }
+    @media (max-width: 980px) { .disc-grid { grid-template-columns: 1fr; } .disc-highlight { position: static; } }
+    @media (max-width: 620px) { .disc-pillars { grid-template-columns: 1fr; } }
+
+    #approach { background: var(--bg); border-block: 1px solid var(--line); }
+    .app-head { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: end; margin-bottom: clamp(3rem, 6vw, 4.4rem); }
+    .app-head h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -0.028em; }
+    .app-head p { color: var(--muted); font-size: 1.02rem; }
+    @media (max-width: 980px) { .app-head { grid-template-columns: 1fr; } }
+
+    /* Overview gets a more expressive, editorial opening than the other inner pages —
+       still well short of the homepage hero, but with real presence and hierarchy. */
+    .ov-hero { background: var(--bg); border-bottom: 1px solid var(--line); padding-block: clamp(2.8rem, 6.4vw, 4.6rem); }
+    .ov-hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(2rem, 5vw, 3.6rem); align-items: center; }
+    .ov-hero-copy .ph-rule { margin-bottom: 1.1rem; }
+    .ov-hero-copy h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); letter-spacing: -0.032em; line-height: 1.08; margin: .8rem 0 1.1rem; }
+    .ov-hero-copy p { color: var(--muted); font-size: 1.08rem; max-width: 56ch; }
+    .ov-hero-panel { position: relative; aspect-ratio: 1/1; width: 100%; max-width: 460px; justify-self: end; border-radius: var(--r-card); border: 1px solid var(--line-2); background: linear-gradient(160deg, var(--bg-2) 0%, var(--accent-soft) 55%, var(--accent-teal-soft) 100%); overflow: hidden; }
+    .ov-hero-panel-fx { position: absolute; inset: 0; }
+    .ov-hp-grid { position: absolute; inset: -20%; background-image: linear-gradient(rgba(20,24,27,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(20,24,27,.05) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(85% 78% at 50% 40%, #000 0%, transparent 78%); }
+    .ov-hp-ring { position: absolute; inset: 22%; border: 1px solid var(--line-2); border-radius: 50%; }
+    .ov-hp-ring.r2 { inset: 36%; border-style: dashed; border-color: rgba(var(--accent-rgb),.4); }
+    .ov-hero-panel .ov-hp-tag { position: absolute; left: 14px; bottom: 12px; font-family: var(--f-label); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); background: rgba(255,255,255,.72); border: 1px solid var(--line-2); border-radius: 100px; padding: .35rem .7rem; }
+    @media (max-width: 900px) { .ov-hero-grid { grid-template-columns: 1fr; } .ov-hero-panel { display: none; } }
+
+    #ecosystem { background: var(--paper); }
+    .eco-note { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.4rem, 3vw, 2.4rem); align-items: start; border: 1px solid var(--line); border-radius: var(--r-card); padding: clamp(1.8rem, 3vw, 2.4rem); background: var(--bg); }
+    .eco-note img { height: 34px; width: auto; opacity: .85; }
+    .eco-note p { color: var(--muted); font-size: 1rem; max-width: 60ch; }
+    .eco-note a { color: var(--accent-ink); font-weight: 500; }
+    @media (max-width: 560px) { .eco-note { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Renewable Energy — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-renewable-energy.svg" alt="GONVERT Renewable Energy" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link active" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== OVERVIEW HERO (more expressive than a standard page-head) ===================== -->
+  <section class="ov-hero">
+    <div class="wrap ov-hero-grid">
+      <div class="ov-hero-copy">
+        <span class="ph-rule"></span>
+        <span class="label dot">Overview</span>
+        <h1>Who GONVERT Renewable Energy is.</h1>
+        <p>An independent renewable energy EPCM and advisory partner — how we work, and how we fit into the GONVERT ecosystem.</p>
+      </div>
+      <div class="ov-hero-panel reveal">
+        <div class="ov-hero-panel-fx" aria-hidden="true">
+          <span class="ov-hp-grid"></span>
+          <span class="ov-hp-ring r1"></span>
+          <span class="ov-hp-ring r2"></span>
+        </div>
+        <span class="ov-hp-tag mono">GONVERT Energy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHO WE ARE ===================== -->
+  <section class="block tight-top" id="about">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(01)</span>
+        <span class="label dot">Who We Are</span>
+        <span class="rule"></span>
+      </div>
+      <div class="disc-grid">
+        <p class="disc-highlight reveal">GONVERT is an <em>independent renewable energy EPCM and advisory partner</em> serving residential, commercial, industrial, and utility-scale markets.</p>
+        <div class="disc-body reveal" data-d="1">
+          <p>Unlike traditional consultants, equipment suppliers, or EPC contractors, GONVERT combines project development, financial analysis, engineering and design, commercial structuring, global procurement, and EPCM delivery within a single integrated framework.</p>
+          <p>That integration is what carries a project from an early-stage opportunity assessment through to a commissioned, operating asset — under one accountable team, not a chain of handoffs.</p>
+          <div class="disc-pillars">
+            <div class="pillar"><div class="k">Independent</div><p>Technology-neutral recommendations aligned with our clients' objectives.</p></div>
+            <div class="pillar"><div class="k">Bankable</div><p>Investment-grade studies and analyses that support financing and investment decisions.</p></div>
+            <div class="pillar"><div class="k">Executable</div><p>Practical project delivery expertise from concept through commissioning.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INTEGRATED APPROACH ===================== -->
+  <section class="block" id="approach">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(02)</span>
+        <span class="label dot">Integrated Approach</span>
+        <span class="rule"></span>
+      </div>
+      <div class="app-head">
+        <h2 class="reveal">From opportunity to delivery.</h2>
+        <p class="reveal" data-d="1">Five connected stages, carried by one accountable team — from first assessment through to a commissioned asset.</p>
+      </div>
+      <div class="flow reveal" data-d="2" id="flowRow">
+        <div class="flow-step"><div class="fs-node mono">01</div><div class="fs-verb">Identify</div><div class="fs-desc">Opportunity assessment.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">02</div><div class="fs-verb">Develop</div><div class="fs-desc">Technical &amp; financial evaluation.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">03</div><div class="fs-verb">Structure</div><div class="fs-desc">Commercial &amp; financing readiness.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">04</div><div class="fs-verb">Procure</div><div class="fs-desc">Global Tier-1 technologies.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">05</div><div class="fs-verb">Deliver</div><div class="fs-desc">EPCM execution &amp; commissioning.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ECOSYSTEM NOTE (subtle, not a badge) ===================== -->
+  <section class="block" id="ecosystem" style="padding-block: clamp(2.5rem, 5vw, 4rem);">
+    <div class="wrap">
+      <div class="eco-note reveal">
+        <img src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+        <p>GONVERT Renewable Energy operates as part of <strong style="color:var(--ink)">GONVERT Technology Solutions Co.</strong>, alongside its pharmaceutical engineering practice. The two share a common engineering discipline and delivery standard, applied to different industries. <a href="../gonvert-landing/index.html">Learn more about GONVERT ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Ready to discuss an opportunity?</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">ENERGY</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Renewable energy project development, EPCM, and advisory — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-pharma/index.html">GONVERT Pharma Technology <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@energy.gonvert.com" style="color:rgba(255,255,255,.72)">info@energy.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Renewable Energy. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

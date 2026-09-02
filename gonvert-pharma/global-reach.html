@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Reach — GONVERT Pharma Technology</title>
+  <meta name="description" content="GONVERT Pharma Technology engineers pharmaceutical facilities from Istanbul, designed to the international regulatory frameworks used across the pharmaceutical and life-sciences sector." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .page-head { position: relative; overflow: hidden; }
+    .page-head .ph-grid {
+      position: absolute; inset: -20% -5%; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(20,24,27,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,24,27,.04) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: radial-gradient(70% 100% at 85% 20%, #000 0%, transparent 72%);
+    }
+    .page-head .ph-inner { position: relative; z-index: 1; }
+
+    #reach { background: var(--paper); }
+    .reach-row { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .reach-row h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.022em; margin-bottom: 1rem; }
+    .reach-row p { color: var(--muted); font-size: 1.02rem; }
+    @media (max-width: 820px) { .reach-row { grid-template-columns: 1fr; } }
+
+    #sectors { background: var(--bg); border-block: 1px solid var(--line); }
+    .sectors-head { max-width: 640px; margin-bottom: clamp(2.2rem, 4.5vw, 3rem); }
+    .sectors-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.022em; margin-bottom: .7rem; }
+    .sectors-head p { color: var(--muted); font-size: 1.02rem; }
+    .sector-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; }
+    .sector-cell { background: var(--paper); padding: 1.8rem 1.6rem; }
+    .sector-cell .m-no { font-family: var(--f-label); font-weight: 600; font-size: .7rem; letter-spacing: .1em; color: var(--accent); }
+    .sector-cell:nth-child(2) .m-no { color: var(--accent-teal); }
+    .sector-cell .m-name { font-family: var(--f-display); font-weight: 540; font-size: 1.1rem; color: var(--ink); margin-top: .6rem; }
+    @media (max-width: 620px) { .sector-grid { grid-template-columns: 1fr; } }
+
+    #frameworks { background: var(--paper); }
+    .fw-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
+    .fw-tags span { font-family: var(--f-label); font-size: .74rem; letter-spacing: .02em; color: var(--accent-blue-ink); background: var(--accent-blue-soft); border-radius: 100px; padding: .45rem .9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link active" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== PAGE HEAD ===================== -->
+  <div class="page-head">
+    <span class="ph-grid" aria-hidden="true"></span>
+    <div class="wrap ph-inner">
+      <span class="ph-rule"></span>
+      <span class="label dot">Global Reach</span>
+      <h1>Engineering from Istanbul, to international standards.</h1>
+      <p>Facilities designed to the regulatory frameworks used across the pharmaceutical and life-sciences sector.</p>
+    </div>
+  </div>
+
+  <!-- ===================== WHERE WE OPERATE ===================== -->
+  <section class="block tight-top" id="reach">
+    <div class="wrap reach-row">
+      <div>
+        <div class="index-bar reveal">
+          <span class="label num mono">(01)</span>
+          <span class="label dot">Where We Operate</span>
+          <span class="rule"></span>
+        </div>
+        <h2 class="reveal">Designed for international regulatory scrutiny.</h2>
+        <p class="reveal" data-d="1">GONVERT Pharma Technology engineers from Istanbul, Türkiye. Every facility is designed to the same international frameworks — EU GMP, FDA cGMP, ICH, and ISPE guidance — so the work is ready for regulatory review wherever a client operates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTORS ===================== -->
+  <section class="block" id="sectors">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(02)</span>
+        <span class="label dot">Sectors</span>
+        <span class="rule"></span>
+      </div>
+      <div class="sectors-head">
+        <h2 class="reveal">Pharmaceutical &amp; life-sciences.</h2>
+        <p class="reveal" data-d="1">GONVERT Pharma Technology delivers specialized EPCm engineering for the pharmaceutical and life-sciences sector.</p>
+      </div>
+      <div class="sector-grid reveal" data-d="1">
+        <div class="sector-cell"><div class="m-no mono">01</div><div class="m-name">Pharmaceutical Manufacturing</div></div>
+        <div class="sector-cell"><div class="m-no mono">02</div><div class="m-name">Life Sciences</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGULATORY FRAMEWORKS ===================== -->
+  <section class="block" id="frameworks">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(03)</span>
+        <span class="label dot">Regulatory Frameworks We Design To</span>
+        <span class="rule"></span>
+      </div>
+      <p class="reveal" style="color:var(--muted); font-size:1.02rem; max-width:64ch;">The same standards ledger that governs our engineering — see <a href="expertise.html" style="color:var(--accent-ink); font-weight:500;">Expertise</a> for the full detail.</p>
+      <div class="fw-tags reveal" data-d="1">
+        <span>EU GMP</span>
+        <span>cGMP · FDA</span>
+        <span>GAMP 5</span>
+        <span>ISO 14644</span>
+        <span>ICH</span>
+        <span>ISPE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Wherever your facility is, we can engineer it.</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">PHARMA</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-renewable/index.html">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.72)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Pharma Technology. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

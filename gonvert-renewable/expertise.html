@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expertise — GONVERT Renewable Energy</title>
+  <meta name="description" content="Energy storage (BESS), Tier-1 technology partnerships, and the engineering tools and standards behind GONVERT Renewable Energy's project delivery." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    #storage { background: var(--paper); }
+    .spot-copy .index-bar { margin-bottom: 1.6rem; }
+
+    #standards { background: var(--bg); border-block: 1px solid var(--line); }
+    .std-head { max-width: 640px; margin-bottom: clamp(2.2rem, 4.5vw, 3rem); }
+    .std-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.022em; margin-bottom: .7rem; }
+    .std-head p { color: var(--muted); font-size: 1.02rem; }
+
+    #partners { background: var(--paper); }
+    .partners-head { max-width: 640px; margin-bottom: clamp(2.2rem, 4.5vw, 3rem); }
+    .partners-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.026em; margin-bottom: .7rem; }
+    .partners-head p { color: var(--muted); font-size: 1.02rem; }
+    .partner-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; }
+    .partner-cell { background: var(--paper); padding: 1.3rem 1.5rem; font-size: .95rem; color: var(--ink-2); display: flex; align-items: center; gap: .7rem; }
+    .partner-cell::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
+    .partner-cell:nth-child(3n+2)::before { background: var(--accent-teal); }
+    .partner-cell:nth-child(3n)::before { background: var(--accent-green); }
+    @media (max-width: 820px) { .partner-list { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .partner-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Renewable Energy — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-renewable-energy.svg" alt="GONVERT Renewable Energy" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link active" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== PAGE HEAD ===================== -->
+  <div class="page-head">
+    <div class="wrap ph-inner">
+      <span class="ph-rule"></span>
+      <span class="label dot">Expertise</span>
+      <h1>Deep expertise. Bankable results.</h1>
+      <p>Energy storage systems, Tier-1 technology partnerships, and the tools and standards that keep our engineering accurate, transparent, and reliable.</p>
+    </div>
+  </div>
+
+  <!-- ===================== ENERGY STORAGE SPOTLIGHT ===================== -->
+  <section class="block tight-top" id="storage">
+    <div class="wrap spot-grid">
+      <div class="spot-copy">
+        <div class="index-bar reveal">
+          <span class="label num mono">(01)</span>
+          <span class="label dot">Energy Storage</span>
+          <span class="rule"></span>
+        </div>
+        <h2 class="reveal">Energy Storage Solutions <span style="color:var(--accent-ink)">(BESS)</span>.</h2>
+        <p class="reveal" data-d="1">Through partnerships with reputable LiFePO₄ battery manufacturers and technology providers, we deliver reliable energy storage solutions for utility-scale, commercial &amp; industrial, and hybrid microgrid applications.</p>
+        <ul class="spot-list reveal" data-d="2">
+          <li>System integration &amp; controls</li>
+          <li>Performance optimization</li>
+          <li>Compliance &amp; safety</li>
+          <li>O&amp;M strategy</li>
+        </ul>
+      </div>
+      <div class="spot-panel reveal" data-d="2">
+        <div class="spot-panel-inner">
+          <span class="label sp-label">Technologies We Work With</span>
+          <div class="sp-title">Access to Tier-1 partner technologies across the full system.</div>
+          <div class="spot-tech">
+            <div class="st-row"><span class="st-name">Solar PV Technologies</span><span class="st-code mono">GEN</span></div>
+            <div class="st-row"><span class="st-name">LiFePO₄ Battery Energy Storage</span><span class="st-code mono">BESS</span></div>
+            <div class="st-row"><span class="st-name">Inverters &amp; Power Electronics</span><span class="st-code mono">PWR</span></div>
+            <div class="st-row"><span class="st-name">Electrical Infrastructure Equipment</span><span class="st-code mono">INFRA</span></div>
+            <div class="st-row"><span class="st-name">Monitoring &amp; Energy Management Systems</span><span class="st-code mono">EMS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOOLS & STANDARDS ===================== -->
+  <section class="block" id="standards">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(02)</span>
+        <span class="label dot">Tools, Standards &amp; Methodologies</span>
+        <span class="rule"></span>
+      </div>
+      <div class="std-head">
+        <h2 class="reveal">Engineered with industry-leading tools and recognized standards.</h2>
+        <p class="reveal" data-d="1">Accuracy, transparency, and reliability — built on the software and standards the industry already trusts.</p>
+      </div>
+      <div class="ledger-grid reveal" data-d="1">
+        <div class="ledger-cell"><div class="code mono tool">Tool</div><h4>PVSyst</h4><p>PV system simulation for yield, losses, and performance modeling.</p></div>
+        <div class="ledger-cell"><div class="code mono tool">Tool</div><h4>ETAP</h4><p>Electrical power system modeling, protection, and grid studies.</p></div>
+        <div class="ledger-cell"><div class="code mono tool">Tool</div><h4>AutoCAD</h4><p>Engineering drawing and design documentation.</p></div>
+        <div class="ledger-cell"><div class="code mono tool">Tool</div><h4>HOMER Pro</h4><p>Hybrid and microgrid system modeling and optimization.</p></div>
+        <div class="ledger-cell"><div class="code mono tool">Tool</div><h4>Microsoft Project</h4><p>Schedule, cost, and resource planning across delivery.</p></div>
+        <div class="ledger-cell"><div class="code mono standard">Standard</div><h4>IEC Standards</h4><p>International electrotechnical requirements across systems.</p></div>
+        <div class="ledger-cell"><div class="code mono standard">Standard</div><h4>IEEE Standards</h4><p>Electrical engineering and grid-interconnection practice.</p></div>
+        <div class="ledger-cell"><div class="code mono standard">Standard</div><h4>ISO Standards</h4><p>Quality, management, and process consistency.</p></div>
+        <div class="ledger-cell"><div class="code mono standard">Standard</div><h4>Local Grid Codes</h4><p>Jurisdiction-specific interconnection and compliance requirements.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STRATEGIC PARTNERSHIPS ===================== -->
+  <section class="block" id="partners">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(03)</span>
+        <span class="label dot">Strategic Partnerships</span>
+        <span class="rule"></span>
+      </div>
+      <div class="partners-head">
+        <h2 class="reveal">Long-term partnerships across the supply chain.</h2>
+        <p class="reveal" data-d="1">Long-term partnerships with leading manufacturers, suppliers, and technology providers strengthen our ability to deliver value to our clients.</p>
+      </div>
+      <div class="partner-list reveal" data-d="1">
+        <div class="partner-cell">Solar Module Manufacturers</div>
+        <div class="partner-cell">Inverter Manufacturers</div>
+        <div class="partner-cell">Battery Manufacturers</div>
+        <div class="partner-cell">Electrical Equipment Suppliers</div>
+        <div class="partner-cell">EPC &amp; Construction Partners</div>
+        <div class="partner-cell">Technology &amp; Software Partners</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Let's build your next renewable energy project.</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">ENERGY</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Renewable energy project development, EPCM, and advisory — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-pharma/index.html">GONVERT Pharma Technology <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@energy.gonvert.com" style="color:rgba(255,255,255,.72)">info@energy.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Renewable Energy. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

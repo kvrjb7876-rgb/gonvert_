@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — GONVERT Pharma Technology</title>
+  <meta name="description" content="Discuss a pharmaceutical facility project with GONVERT Pharma Technology — engineering compliant, precise facilities from concept to qualification." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    #contact-main { background: var(--paper); }
+    .contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+    .contact-copy h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.032em; margin-bottom: 1.2rem; }
+    .contact-copy p { color: var(--muted); font-size: 1.08rem; max-width: 52ch; margin-bottom: 2.2rem; }
+    .contact-details { display: grid; gap: 1.3rem; }
+    .cd-row { display: flex; align-items: flex-start; gap: 1rem; }
+    .cd-row svg { flex: none; margin-top: 4px; color: var(--accent-ink); }
+    .cd-row:nth-child(1) svg { color: var(--accent-teal-ink); }
+    .cd-row:nth-child(2) svg { color: var(--accent-blue-ink); }
+    .cd-row .cd-k { font-family: var(--f-label); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+    .cd-row .cd-v { font-size: 1.02rem; color: var(--ink); }
+    .cd-row a.cd-v:hover { color: var(--accent-ink); }
+
+    .contact-panel { background: var(--dark-2); border-radius: var(--r-card); padding: clamp(2rem, 3.5vw, 2.8rem); color: rgba(255,255,255,.82); position: relative; overflow: hidden; }
+    .contact-panel::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 34px 34px; mask-image: radial-gradient(120% 100% at 100% 0%, #000, transparent 70%);
+    }
+    .contact-panel-inner { position: relative; z-index: 1; }
+    .contact-panel .cp-title { color: #fff; font-size: 1.35rem; letter-spacing: -0.018em; margin: .9rem 0 1.3rem; }
+    .contact-panel p { color: rgba(255,255,255,.62); font-size: .95rem; margin-bottom: 1.6rem; }
+    .contact-panel .btn-on-dark { --bc: rgba(255,255,255,.28); color: #fff; width: 100%; justify-content: center; }
+    .contact-panel .btn-on-dark:hover { color: var(--dark); --bc: #fff; }
+    .contact-panel .btn-on-dark::before { background: #fff; }
+
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    #wayfind { background: var(--bg); border-block: 1px solid var(--line); }
+    .wayfind-head { max-width: 640px; margin-bottom: clamp(2rem, 4vw, 2.6rem); }
+    .wayfind-head h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.024em; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="block" id="contact-main" style="padding-top: clamp(2.4rem, 5vw, 3.4rem);">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <span class="label dot reveal">Start a Project</span>
+        <h1 class="reveal" data-d="1">Your partner from concept to qualification.</h1>
+        <p class="reveal" data-d="2">Whether you're planning a new facility, upgrading a controlled environment, or preparing for inspection, GONVERT Pharma Technology provides the engineering expertise to carry the project through.</p>
+        <div class="contact-details reveal" data-d="3">
+          <div class="cd-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <div><div class="cd-k">Email</div><a class="cd-v" href="mailto:info@pharma.gonvert.com">info@pharma.gonvert.com</a></div>
+          </div>
+          <div class="cd-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><div class="cd-k">Office</div><span class="cd-v">Istanbul, Türkiye</span></div>
+          </div>
+          <div class="cd-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><div class="cd-k">Sectors</div><span class="cd-v">Pharmaceutical Manufacturing · Life Sciences</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-panel reveal" data-d="2">
+        <div class="contact-panel-inner">
+          <span class="label sp-label" style="color:rgba(255,255,255,.5)">Discuss Your Project</span>
+          <div class="cp-title">Tell us about the facility.</div>
+          <p>Send a short note on the project, sector, and stage — concept, design, compliance, or commissioning — and we'll follow up directly.</p>
+          <a href="mailto:info@pharma.gonvert.com" class="btn btn-on-dark">
+            <span>Email GONVERT Pharma</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WAYFINDING ===================== -->
+  <section class="block" id="wayfind">
+    <div class="wrap">
+      <div class="wayfind-head">
+        <span class="label dot reveal">Explore GONVERT Pharma</span>
+        <h2 class="reveal" data-d="1">Learn more before you reach out.</h2>
+      </div>
+      <div class="row-list reveal" data-d="2">
+        <a class="proc" href="overview.html">
+          <span class="p-no mono">01</span>
+          <span class="p-body"><span class="p-name">Overview</span><span class="p-desc">Who we are, and our delivery lifecycle.</span></span>
+          <span></span>
+          <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="proc" href="services.html">
+          <span class="p-no mono">02</span>
+          <span class="p-body"><span class="p-name">Services</span><span class="p-desc">Conceptual design, engineering, GMP compliance, and commissioning.</span></span>
+          <span></span>
+          <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="proc" href="expertise.html">
+          <span class="p-no mono">03</span>
+          <span class="p-body"><span class="p-name">Expertise</span><span class="p-desc">Cleanroom &amp; HVAC systems, and international standards.</span></span>
+          <span></span>
+          <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="proc" href="global-reach.html">
+          <span class="p-no mono">04</span>
+          <span class="p-body"><span class="p-name">Global Reach</span><span class="p-desc">Engineering from Istanbul, to international standards.</span></span>
+          <span></span>
+          <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">PHARMA</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-renewable/index.html">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.72)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Pharma Technology. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

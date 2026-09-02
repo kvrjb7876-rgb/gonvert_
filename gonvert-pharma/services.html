@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — GONVERT Pharma Technology</title>
+  <meta name="description" content="Conceptual and detailed engineering, GMP compliance and validation, cleanroom and HVAC systems, process and clean utilities, and commissioning and qualification." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    #services { background: var(--paper); }
+    #why { background: var(--bg); border-block: 1px solid var(--line); }
+    .why-head { text-align: left; max-width: 640px; margin-bottom: clamp(1.8rem, 3.6vw, 2.4rem); }
+    .why-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.022em; margin-bottom: .6rem; }
+    .why-head p { color: var(--muted); font-size: 1rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .why { border-top: 2px solid var(--line-2); padding-top: 1rem; }
+    .why:nth-child(1) { border-top-color: var(--accent); }
+    .why:nth-child(2) { border-top-color: var(--accent-teal); }
+    .why:nth-child(3) { border-top-color: var(--accent-green); }
+    .why:nth-child(4) { border-top-color: var(--accent-ink); }
+    .why .k { font-family: var(--f-label); font-weight: 600; font-size: .8rem; letter-spacing: .06em; color: var(--accent-ink); }
+    .why p { font-size: .92rem; color: var(--muted); margin-top: .5rem; }
+    @media (max-width: 820px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="overview.html">Overview</a></li>
+          <li><a class="nav-link active" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== PAGE HEAD (compact) ===================== -->
+  <div class="page-head">
+    <div class="wrap ph-inner">
+      <span class="ph-rule"></span>
+      <span class="label dot">Services</span>
+      <h1>Engineering, compliance &amp; delivery services.</h1>
+      <p>From conceptual design through commissioning and qualification — specialized EPCm engineering for the pharmaceutical and life-sciences sector.</p>
+    </div>
+  </div>
+
+  <!-- ===================== SERVICES — 6 clickable, image-ready cards ===================== -->
+  <section class="block tight-top" id="services">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(01)</span>
+        <span class="label dot">The Six Capabilities</span>
+        <span class="rule"></span>
+      </div>
+      <div class="svc-grid">
+        <a class="svc is-link reveal" href="services/conceptual-basic-design.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V7l6-4 6 4v14M10 21v-5h4v5"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">01</span></div>
+          <h3 data-typewriter>Conceptual &amp; Basic Design</h3>
+          <p>Feasibility studies, facility concepts, and basis-of-design that align capacity, compliance, and capital from the outset.</p>
+          <div class="svc-tags"><span>Feasibility Studies</span><span>Basis of Design</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="1" href="services/detailed-engineering.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11M14 4v5"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">02</span></div>
+          <h3 data-typewriter>Detailed Engineering</h3>
+          <p>Multidiscipline detailed design — architectural, process, mechanical, electrical, and automation — coordinated to one model.</p>
+          <div class="svc-tags"><span>Process Design</span><span>Automation</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="2" href="services/gmp-compliance-validation.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">03</span></div>
+          <h3 data-typewriter>GMP Compliance &amp; Validation</h3>
+          <p>Compliance strategy, risk assessment, and validation planning built to cGMP expectation and inspection readiness.</p>
+          <div class="svc-tags"><span>Risk Assessment</span><span>Validation Planning</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" href="services/cleanroom-hvac.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><path d="M7 4v3M17 12v5M12 4v3"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">04</span></div>
+          <h3 data-typewriter>Cleanroom &amp; HVAC Systems</h3>
+          <p>Classified cleanrooms and HVAC engineered for contamination control, pressure cascade, and ISO-class stability.</p>
+          <div class="svc-tags"><span>Contamination Control</span><span>Pressure Cascade</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="1" href="services/process-clean-utilities.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9l4-3 4 3v12M13 21V13l6-3v11"/><path d="M3 21h18"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">05</span></div>
+          <h3 data-typewriter>Process &amp; Clean Utilities</h3>
+          <p>Process systems and clean utilities — WFI, PW, clean steam, and gases — designed for purity, capacity, and control.</p>
+          <div class="svc-tags"><span>WFI &amp; PW</span><span>Clean Steam &amp; Gases</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="2" href="services/commissioning-qualification.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l4 4 12-12"/><path d="M4 20h16"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">06</span></div>
+          <h3 data-typewriter>Commissioning &amp; Qualification</h3>
+          <p>Structured C&amp;Q — IQ, OQ, PQ — that carries the design intent through to a documented, qualified handover.</p>
+          <div class="svc-tags"><span>IQ / OQ / PQ</span><span>Qualified Handover</span></div>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CLIENTS CHOOSE GONVERT ===================== -->
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(02)</span>
+        <span class="label dot">Why Clients Choose GONVERT</span>
+        <span class="rule"></span>
+      </div>
+      <div class="why-head">
+        <h2 class="reveal">Compliance is engineered, not appended.</h2>
+        <p class="reveal" data-d="1">We treat regulatory expectation as a design input from day one — risk is assessed early, and every system is specified so that qualification confirms the design rather than repairs it.</p>
+      </div>
+      <div class="why-grid reveal" data-d="2">
+        <div class="why"><div class="k">Quality by Design</div><p>Quality risk management embedded from concept.</p></div>
+        <div class="why"><div class="k">Traceable</div><p>Design intent traceable through to qualification.</p></div>
+        <div class="why"><div class="k">Contamination Control</div><p>Contamination control and data integrity by design.</p></div>
+        <div class="why"><div class="k">Inspection-Ready</div><p>Inspection-ready documentation at every stage.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Let's design your next facility.</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">PHARMA</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-renewable/index.html">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.72)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Pharma Technology. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

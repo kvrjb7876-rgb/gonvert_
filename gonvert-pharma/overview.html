@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview — GONVERT Pharma Technology</title>
+  <meta name="description" content="GONVERT Pharma Technology is a specialized EPCm engineering partner for the pharmaceutical and life-sciences sector — who we are, our delivery lifecycle, and how we fit into the GONVERT ecosystem." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    #about { background: var(--paper); }
+    .disc-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem, 6vw, 5.5rem); align-items: start; }
+    .disc-highlight { font-family: var(--f-display); font-weight: 440; font-size: clamp(1.5rem, 2.9vw, 2.2rem); line-height: 1.26; letter-spacing: -0.024em; color: var(--ink); position: sticky; top: calc(var(--header-h) + 2rem); }
+    .disc-highlight em { font-style: normal; color: var(--accent-ink); }
+    .disc-body p { color: var(--muted); font-size: 1.07rem; margin-bottom: 1.2rem; }
+    .disc-body p:last-child { margin-bottom: 0; }
+    .disc-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.4rem; }
+    .pillar { border-top: 1px solid var(--line-2); padding-top: 1rem; }
+    .pillar .k { font-family: var(--f-label); font-weight: 600; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); }
+    .pillar p { font-size: .92rem; color: var(--muted); margin-top: .5rem; }
+    @media (max-width: 980px) { .disc-grid { grid-template-columns: 1fr; } .disc-highlight { position: static; } }
+    @media (max-width: 620px) { .disc-pillars { grid-template-columns: 1fr; } }
+
+    #approach { background: var(--bg); border-block: 1px solid var(--line); }
+    .app-head { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: end; margin-bottom: clamp(3rem, 6vw, 4.4rem); }
+    .app-head h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -0.028em; }
+    .app-head p { color: var(--muted); font-size: 1.02rem; }
+    @media (max-width: 980px) { .app-head { grid-template-columns: 1fr; } }
+
+    /* Overview gets a more expressive, editorial opening than the other inner pages —
+       still well short of the homepage hero, but with real presence and hierarchy. */
+    .ov-hero { background: var(--bg); border-bottom: 1px solid var(--line); padding-block: clamp(2.8rem, 6.4vw, 4.6rem); }
+    .ov-hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(2rem, 5vw, 3.6rem); align-items: center; }
+    .ov-hero-copy .ph-rule { margin-bottom: 1.1rem; }
+    .ov-hero-copy h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); letter-spacing: -0.032em; line-height: 1.08; margin: .8rem 0 1.1rem; }
+    .ov-hero-copy p { color: var(--muted); font-size: 1.08rem; max-width: 56ch; }
+    .ov-hero-panel { position: relative; aspect-ratio: 1/1; width: 100%; max-width: 460px; justify-self: end; border-radius: var(--r-card); border: 1px solid var(--line-2); background: linear-gradient(160deg, var(--bg-2) 0%, var(--accent-soft) 55%, var(--accent-teal-soft) 100%); overflow: hidden; }
+    .ov-hero-panel-fx { position: absolute; inset: 0; }
+    .ov-hp-grid { position: absolute; inset: -20%; background-image: linear-gradient(rgba(20,24,27,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(20,24,27,.05) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(85% 78% at 50% 40%, #000 0%, transparent 78%); }
+    .ov-hp-ring { position: absolute; inset: 22%; border: 1px solid var(--line-2); border-radius: 50%; }
+    .ov-hp-ring.r2 { inset: 36%; border-style: dashed; border-color: rgba(var(--accent-rgb),.4); }
+    .ov-hero-panel .ov-hp-tag { position: absolute; left: 14px; bottom: 12px; font-family: var(--f-label); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); background: rgba(255,255,255,.72); border: 1px solid var(--line-2); border-radius: 100px; padding: .35rem .7rem; }
+    @media (max-width: 900px) { .ov-hero-grid { grid-template-columns: 1fr; } .ov-hero-panel { display: none; } }
+
+    #ecosystem { background: var(--paper); }
+    .eco-note { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.4rem, 3vw, 2.4rem); align-items: start; border: 1px solid var(--line); border-radius: var(--r-card); padding: clamp(1.8rem, 3vw, 2.4rem); background: var(--bg); }
+    .eco-note img { height: 34px; width: auto; opacity: .85; }
+    .eco-note p { color: var(--muted); font-size: 1rem; max-width: 60ch; }
+    .eco-note a { color: var(--accent-ink); font-weight: 500; }
+    @media (max-width: 560px) { .eco-note { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link active" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== OVERVIEW HERO (more expressive than a standard page-head) ===================== -->
+  <section class="ov-hero">
+    <div class="wrap ov-hero-grid">
+      <div class="ov-hero-copy">
+        <span class="ph-rule"></span>
+        <span class="label dot">Overview</span>
+        <h1>Who GONVERT Pharma Technology is.</h1>
+        <p>A specialized EPCm engineering partner for the pharmaceutical and life-sciences sector — how we work, and how we fit into the GONVERT ecosystem.</p>
+      </div>
+      <div class="ov-hero-panel reveal">
+        <div class="ov-hero-panel-fx" aria-hidden="true">
+          <span class="ov-hp-grid"></span>
+          <span class="ov-hp-ring r1"></span>
+          <span class="ov-hp-ring r2"></span>
+        </div>
+        <span class="ov-hp-tag mono">GONVERT Pharma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHO WE ARE ===================== -->
+  <section class="block tight-top" id="about">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(01)</span>
+        <span class="label dot">Who We Are</span>
+        <span class="rule"></span>
+      </div>
+      <div class="disc-grid">
+        <p class="disc-highlight reveal">Pharmaceutical facilities demand more than construction — they demand <em>engineered compliance</em>.</p>
+        <div class="disc-body reveal" data-d="1">
+          <p>GONVERT Pharma Technology delivers specialized EPCm engineering for the pharmaceutical and life-sciences sector. From conceptual design and feasibility through commissioning, qualification, and validation, every decision is measured against regulatory expectation and operational reality.</p>
+          <p>We engineer controlled environments — cleanrooms, HVAC, clean utilities, and process systems — where contamination control, data integrity, and repeatable performance are designed in from the first line, not corrected at handover.</p>
+          <p>The result is advanced manufacturing infrastructure that is compliant by design, efficient to operate, and ready to qualify: precise engineering in service of patient safety and product quality.</p>
+          <div class="disc-pillars">
+            <div class="pillar"><div class="k">Precision</div><p>Tolerance-driven design and measured execution across every discipline.</p></div>
+            <div class="pillar"><div class="k">Compliance</div><p>cGMP and regulatory intent embedded from concept to qualification.</p></div>
+            <div class="pillar"><div class="k">Performance</div><p>Facilities designed to run reliably, efficiently, and at scale.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DELIVERY LIFECYCLE ===================== -->
+  <section class="block" id="approach">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(02)</span>
+        <span class="label dot">Delivery Lifecycle</span>
+        <span class="rule"></span>
+      </div>
+      <div class="app-head">
+        <h2 class="reveal">From concept to qualified handover.</h2>
+        <p class="reveal" data-d="1">Six connected stages, carried by one accountable team — from facility strategy through to a validated, inspection-ready facility.</p>
+      </div>
+      <div class="flow flow-6 reveal" data-d="2" id="flowRow">
+        <div class="flow-step"><div class="fs-node mono">01</div><div class="fs-verb">Concept</div><div class="fs-desc">Facility strategy, capacity modelling, and basis of design.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">02</div><div class="fs-verb">Design</div><div class="fs-desc">Multidiscipline engineering coordinated to a single model.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">03</div><div class="fs-verb">Procure</div><div class="fs-desc">Specification, vendor qualification, and equipment sourcing.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">04</div><div class="fs-verb">Construct</div><div class="fs-desc">Site execution with quality and GMP oversight throughout.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">05</div><div class="fs-verb">Commission</div><div class="fs-desc">IQ / OQ / PQ against documented acceptance criteria.</div><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="flow-step"><div class="fs-node mono">06</div><div class="fs-verb">Validate</div><div class="fs-desc">Validated, inspection-ready facility ready for operation.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ECOSYSTEM NOTE (subtle, not a badge) ===================== -->
+  <section class="block" id="ecosystem" style="padding-block: clamp(2.5rem, 5vw, 4rem);">
+    <div class="wrap">
+      <div class="eco-note reveal">
+        <img src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+        <p>GONVERT Pharma Technology operates as part of <strong style="color:var(--ink)">GONVERT Technology Solutions Co.</strong>, alongside its renewable energy engineering practice. The two share a common engineering discipline and delivery standard, applied to different industries. <a href="../gonvert-landing/index.html">Learn more about GONVERT ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Ready to discuss a facility?</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">PHARMA</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-renewable/index.html">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.72)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Pharma Technology. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

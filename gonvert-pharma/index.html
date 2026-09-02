@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GONVERT Pharma Technology — Engineering Compliant, Precise Pharmaceutical Facilities</title>
+  <meta name="description" content="GONVERT Pharma Technology delivers GMP-compliant engineering for pharmaceutical facilities — controlled environments, process and clean utilities, cleanroom design, commissioning and qualification." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ================= HERO (homepage only — bold, split composition, the single hero on the site) ================= */
+    .hero { position: relative; overflow: hidden; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .hero-grid-outer { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 7vw, 5.4rem); }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .7rem; padding: .5rem .95rem; border: 1px solid var(--line-2); border-radius: 100px; margin-bottom: 1.6rem; }
+    .hero-eyebrow .label { color: var(--accent-blue-ink); font-size: .64rem; }
+    .hero-eyebrow .label.dot::before { background: var(--accent-teal); }
+    .hero h1 { font-size: clamp(2.3rem, 5.4vw, 4.2rem); font-weight: 500; line-height: 1.06; letter-spacing: -0.032em; color: var(--ink); margin-bottom: 1.5rem; text-align: left; }
+    .hero h1 .n { position: relative; display: inline-block; }
+    .hero h1 .n.mark::after { content: ""; position: absolute; left: 0; bottom: .05em; height: .08em; width: 100%; background: var(--accent-gradient); opacity: .9; transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease) .5s; }
+    .hero.in h1 .n.mark::after { transform: scaleX(1); }
+    .hero-sub { font-size: clamp(1.02rem, 1.3vw, 1.16rem); color: var(--muted); max-width: 56ch; margin: 0 0 2.2rem; text-align: left; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; align-items: center; justify-content: flex-start; }
+
+    /* right-side technical panel — bounded, not full-bleed; the site's distinct visual signature */
+    .hero-panel { position: relative; aspect-ratio: 4/5; width: 100%; max-width: 640px; justify-self: end; border-radius: var(--r-card); border: 1px solid var(--line-2); background: linear-gradient(165deg, var(--bg-2) 0%, var(--accent-soft) 55%, var(--accent-teal-soft) 100%); overflow: hidden; }
+    /* video-ready media layer — currently unused (no footage yet). The technical grid/rings
+       panel is the permanent poster/fallback; a real <video class="hero-video"> would sit
+       behind it here and crossfade in via main.js the moment a source is present. */
+    .hero-media { position: absolute; inset: 0; overflow: hidden; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s var(--ease); }
+    .hero-video.is-ready { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+    .hero-panel-fx { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .hp-grid { position: absolute; inset: -20%; background-image: linear-gradient(rgba(20,24,27,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(20,24,27,.05) 1px, transparent 1px); background-size: 34px 34px; mask-image: radial-gradient(85% 78% at 50% 40%, #000 0%, transparent 78%); }
+    .hp-guides { position: absolute; left: 50%; top: 42%; transform: translate(-50%,-50%); width: 72%; aspect-ratio: 1/1; opacity: .55; }
+    .hp-guides .ring { position: absolute; inset: 16%; border: 1px solid var(--line-2); border-radius: 50%; }
+    .hp-guides .ring.r2 { inset: 30%; border-style: dashed; border-color: rgba(var(--accent-blue-rgb),.4); }
+    .hp-guides .ax { position: absolute; background: var(--line-2); }
+    .hp-guides .ax.h { left: 0; right: 0; top: 50%; height: 1px; }
+    .hp-guides .ax.v { top: 0; bottom: 0; left: 50%; width: 1px; }
+    .hp-guides .tick { position: absolute; width: 9px; height: 9px; opacity: .85; }
+    .hp-guides .tick::before, .hp-guides .tick::after { content:""; position:absolute; background: currentColor; }
+    .hp-guides .tick::before { left:0; top:50%; width:100%; height:1px; transform: translateY(-50%); }
+    .hp-guides .tick::after { top:0; left:50%; height:100%; width:1px; transform: translateX(-50%); }
+    .hp-guides .tick.t1 { left: 16%; top: 50%; transform: translate(-50%,-50%); color: var(--accent); }
+    .hp-guides .tick.t2 { left: 84%; top: 50%; transform: translate(-50%,-50%); color: var(--accent-teal); }
+    .hp-guides .tick.t3 { left: 50%; top: 16%; transform: translate(-50%,-50%); color: var(--accent-green); }
+    .hp-scan { position: absolute; left: 0; right: 0; height: 34%; top: 0; background: linear-gradient(180deg, transparent, rgba(var(--accent-blue-rgb),.06) 60%, rgba(var(--accent-blue-rgb),.1)); border-bottom: 1px solid rgba(var(--accent-blue-rgb),.18); animation: scan 12s cubic-bezier(.6,.02,.4,1) infinite; }
+    .hero-panel-readout { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 18px; display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
+    .hero-panel-readout .hp-tag { font-family: var(--f-label); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-blue-ink); background: rgba(255,255,255,.7); border: 1px solid var(--line-2); border-radius: 100px; padding: .4rem .8rem; backdrop-filter: blur(6px); }
+    .hero-panel-readout .hp-tag.alt { color: var(--accent-teal-ink); }
+
+    @keyframes scan { 0% { top: -34%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .hp-scan { animation: none; display: none; } .hero h1 .n.mark::after { transform: scaleX(1); } }
+    @media (max-width: 980px) { .hero-grid-outer { grid-template-columns: 1fr; } .hero-panel { aspect-ratio: 16/9; width: 100%; max-width: none; justify-self: stretch; } }
+    @media (max-width: 620px) { .hero-actions .btn { width: 100%; justify-content: center; } }
+
+    /* ================= EXPLORE (5-card site map — image-ready, clickable) ================= */
+    #explore { background: var(--bg); border-block: 1px solid var(--line); }
+    .explore-head { max-width: 640px; margin-bottom: clamp(2rem, 4vw, 2.8rem); }
+    .explore-head h2 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); letter-spacing: -0.026em; margin-bottom: .6rem; }
+    .explore-head p { color: var(--muted); font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link active" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="overview.html">Overview</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="expertise.html">Expertise</a></li>
+          <li><a class="nav-link" href="global-reach.html">Global Reach</a></li>
+          <li><a class="nav-cta" href="contact.html">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid-outer">
+      <div class="hero-copy">
+        <span class="hero-eyebrow"><span class="label dot">GONVERT Pharma Technology</span></span>
+        <h1>Engineering <span class="n mark">compliant</span>, <span class="n mark">precise</span> pharmaceutical facilities.</h1>
+        <p class="hero-sub">GONVERT Pharma Technology designs and delivers GMP-compliant facilities — controlled environments, clean utilities, and validated processes engineered for performance, safety, and regulatory certainty.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">
+            <span>Discuss Your Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="overview.html" class="btn btn-ghost"><span>Explore Overview</span></a>
+        </div>
+      </div>
+      <div class="hero-panel reveal">
+        <div class="hero-media" aria-hidden="true">
+          <!-- Ready for real footage — e.g. cleanroom interiors, stainless-steel process
+               systems, controlled corridors. Uncomment and point at real files:
+          <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/media/hero-poster.jpg">
+            <source src="assets/media/hero.webm" type="video/webm" />
+            <source src="assets/media/hero.mp4" type="video/mp4" />
+          </video>
+          -->
+        <div class="hero-panel-fx" aria-hidden="true">
+          <span class="hp-grid"></span>
+          <div class="hp-guides">
+            <span class="ax h"></span><span class="ax v"></span>
+            <span class="ring r1"></span><span class="ring r2"></span>
+            <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span>
+          </div>
+          <span class="hp-scan"></span>
+        </div>
+        </div>
+        <div class="hero-panel-readout">
+          <span class="hp-tag mono">EPCm · GMP</span>
+          <span class="hp-tag alt mono">Precision Engineering</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPLORE — 5-card site map (3 top, 2 centered) ===================== -->
+  <section class="block tight-top" id="explore">
+    <div class="wrap">
+      <div class="index-bar reveal">
+        <span class="label num mono">(01)</span>
+        <span class="label dot">Explore GONVERT Pharma</span>
+        <span class="rule"></span>
+      </div>
+      <div class="explore-head">
+        <h2 class="reveal">Five ways into the business.</h2>
+        <p class="reveal" data-d="1">A short summary of who we are, what we deliver, and how — each leads to the full detail.</p>
+      </div>
+      <div class="grid-5">
+        <a class="svc is-link reveal" href="overview.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V7l6-4 6 4v14M10 21v-5h4v5"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">01</span></div>
+          <h3>Overview</h3>
+          <p>Who GONVERT Pharma Technology is, and our engineering philosophy.</p>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="1" href="services.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11M14 4v5"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">02</span></div>
+          <h3>Services</h3>
+          <p>Conceptual design, detailed engineering, GMP compliance, and commissioning.</p>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="2" href="expertise.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">03</span></div>
+          <h3>Expertise</h3>
+          <p>Cleanroom &amp; HVAC systems, clean utilities, and international standards.</p>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" href="global-reach.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9z"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">04</span></div>
+          <h3>Global Reach</h3>
+          <p>Engineering from Istanbul, to international regulatory frameworks.</p>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="svc is-link reveal" data-d="1" href="contact.html">
+          <div class="svc-media"><span class="svc-media-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg></span></div>
+          <div class="svc-top"><span class="svc-no mono">05</span></div>
+          <h3>Contact</h3>
+          <p>Start a conversation about your pharmaceutical facility project.</p>
+          <div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND (modest — not a second hero) ===================== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="reveal">Compliance engineered from concept to qualification.</h2>
+      <div class="cta-actions reveal" data-d="1">
+        <a href="contact.html" class="btn btn-primary">
+          <span>Discuss Your Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">PHARMA</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="../gonvert-landing/index.html" aria-label="Part of GONVERT Technology Solutions">
+            <img class="footer-symbol" src="assets/logos/gonvert-icon.svg" alt="GONVERT" />
+          </a>
+          <p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="global-reach.html">Global Reach</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="../gonvert-landing/index.html">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="../gonvert-renewable/index.html">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.72)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Pharma Technology. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="services.html">Services</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
