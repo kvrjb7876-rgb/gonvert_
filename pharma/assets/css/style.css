@@ -378,3 +378,21 @@ footer ul a .ext { opacity: .6; }
 @media (max-width: 620px) {
   .footer-top { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   PHOTO SLOTS  — see HOW-TO-ADD-IMAGES.md
+   Every <img> below points at a file in assets/images/.
+   Swap that file for a real photo using the SAME filename and
+   it appears on the site automatically — no code change needed.
+   If a file is ever missing, the <img> removes itself and the
+   CSS panel underneath shows through (never a broken icon).
+   ========================================================= */
+.article-media .am-photo,
+.hero-panel .hero-photo,
+.ov-hero-panel .ov-hero-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.article-media .am-photo { border-radius: inherit; }
