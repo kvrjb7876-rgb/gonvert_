@@ -30,8 +30,13 @@ From PowerShell, the complete next-time setup is:
 
 ```powershell
 cd "C:\path\to\gonvert_"
+$env:Path = "C:\Program Files\nodejs;$env:Path"
 npx vercel dev
 ```
+
+The `PATH` line is needed on machines where Node.js is installed but PowerShell
+does not find `node` or `npx` automatically. It only changes the current
+terminal session.
 
 ## Deploy
 
