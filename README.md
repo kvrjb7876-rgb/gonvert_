@@ -13,13 +13,25 @@ root `assets/`.
 
 ## Local preview
 
+Install [Node.js LTS](https://nodejs.org/) once, then run the Vercel development
+server from the repository root:
+
 ```sh
-npx serve .        # or: python3 -m http.server 8000
+npx vercel dev
 ```
 
-Note: a plain static server does not apply `cleanUrls`, so extensionless links
-(`/pharma/services`) 404 locally. Use `npx vercel dev` to preview exactly as
-deployed.
+Open `http://localhost:3000/` for the main site, or
+`http://localhost:3000/pharma` for the pharma site. The Vercel server applies
+the same `cleanUrls` behavior used in deployment, so extensionless links such
+as `/pharma/services` work locally too. If Vercel asks to install the CLI,
+confirm with `y`.
+
+From PowerShell, the complete next-time setup is:
+
+```powershell
+cd "C:\path\to\gonvert_"
+npx vercel dev
+```
 
 ## Deploy
 
