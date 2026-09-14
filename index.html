@@ -197,17 +197,20 @@
        HERO
        ========================================================= */
     .hero { position: relative; overflow: hidden; min-height: clamp(600px, 90vh, 860px); display: flex; align-items: center; background: linear-gradient(180deg, var(--paper) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
-    /* Replace this single URL when the final static hero image is ready. */
+    .hero-background-slideshow { position: absolute; inset: 0; pointer-events: none; }
     .hero-background {
       position: absolute; inset: 0; pointer-events: none;
-      background-image: url('/assets/video/hero-ambient.jpg');
-      background-size: cover; background-position: center;
-      filter: invert(1) grayscale(1) contrast(.84);
-      opacity: .52; mix-blend-mode: multiply;
+      background-size: cover; background-position: 62% center;
+      opacity: 0;
+      transition: opacity 1.8s var(--ease);
+    }
+    .hero-background.is-active { opacity: 1; }
+    @media (max-width: 760px) {
+      .hero-background { background-position: 68% center; }
     }
     .hero-background-overlay {
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(120% 92% at 42% 44%, rgba(248,248,246,.78) 0%, rgba(248,248,246,.58) 48%, rgba(248,248,246,.42) 100%);
+      background: linear-gradient(to right, rgba(248,248,246,.90) 0%, rgba(248,248,246,.86) 24%, rgba(248,248,246,.50) 43%, rgba(248,248,246,.12) 59%, rgba(248,248,246,0) 73%);
     }
 
     .hero-content { position: relative; z-index: 1; width: 100%; max-width: 980px; margin-inline: 0; padding-block: clamp(5rem, 10vw, 8rem); text-align: left; }
@@ -230,7 +233,8 @@
       box-shadow: 0 12px 28px -24px rgba(23,26,28,.42); backdrop-filter: blur(8px);
       transition: transform .35s var(--ease), border-color .35s var(--ease), background-color .35s var(--ease), box-shadow .35s var(--ease);
     }
-    .hero-solution-card::before { content: ""; width: 5px; height: 5px; flex: none; border-radius: 50%; background: var(--solution-brand); }
+    .hero-solution-card .solution-icon { display: grid; place-items: center; width: 18px; height: 18px; flex: none; color: var(--solution-brand); }
+    .hero-solution-card .solution-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
     .hero-solution-card .solution-name { flex: 1; font-family: var(--f-display); font-size: clamp(1rem, 1.6vw, 1.18rem); font-weight: 540; line-height: 1.2; }
     .hero-solution-card .solution-arrow { color: var(--solution-brand); font-size: 1.15rem; transition: transform .35s var(--ease); }
     .hero-solution-card:hover { transform: translateY(-3px); border-color: var(--solution-brand); background: rgba(255,255,255,.86); box-shadow: 0 18px 34px -24px rgba(23,26,28,.5); }
@@ -271,7 +275,7 @@
     .about-card h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); font-weight: 540; letter-spacing: -0.02em; margin-bottom: .85rem; }
     .about-card-rule { width: 2.8rem; height: 2px; background: var(--about-brand); margin-bottom: 1.25rem; }
     .about-card p { color: var(--muted); font-size: .98rem; line-height: 1.65; margin: 0; }
-    .about-card-image { flex: 0 0 46%; width: 46%; height: 100%; overflow: hidden; border-right: 1px solid rgba(var(--about-brand-rgb),.18); background: var(--bg-2); }
+    .about-card-image { flex: 0 0 46%; width: 46%; height: 100%; overflow: hidden; background: var(--bg-2); -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.08) 10%, rgba(0,0,0,.28) 24%, rgba(0,0,0,.58) 42%, rgba(0,0,0,.86) 62%, #000 82%, #000 100%); mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.08) 10%, rgba(0,0,0,.28) 24%, rgba(0,0,0,.58) 42%, rgba(0,0,0,.86) 62%, #000 82%, #000 100%); }
     .about-card-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78) contrast(.96); transition: transform .7s var(--ease), filter .7s var(--ease); }
     .about-card:hover .about-card-image img { transform: scale(1.035); filter: saturate(.92) contrast(1); }
 
@@ -342,16 +346,14 @@
       background-size: 64px 64px;
       mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 78%);
     }
-    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; position: relative; z-index: 1; }
-    /* footer brand: the GONVERT symbol only — a quiet signature, never a second wordmark */
-    .footer-symbol { height: 54px; width: auto; opacity: .9; }
+    .footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; position: relative; z-index: 1; }
     footer h4 { font-family: var(--f-label); color: rgba(255,255,255,.5); font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; margin: 0 0 1.3rem; }
     footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
     footer ul a { color: rgba(255,255,255,.75); font-size: .96rem; transition: color .25s var(--ease); }
     footer ul a:hover { color: var(--accent); }
     .contact-line { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .9rem; color: rgba(255,255,255,.75); font-size: .96rem; }
     .contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
-    .footer-wordmark { position: absolute; right: -2%; bottom: -8%; font-family: var(--f-display); font-weight: 600; font-size: clamp(6rem, 20vw, 18rem); color: rgba(255,255,255,.03); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; }
+    .footer-wordmark { position: absolute; right: 13%; bottom: -4%; font-family: var(--f-display); font-weight: 600; font-size: clamp(4.5rem, 13vw, 11rem); color: rgba(255,255,255,.03); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; z-index: 0; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.10); padding-block: 1.6rem; display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
     .footer-bottom .label { color: rgba(255,255,255,.4); font-size: .66rem; }
     .footer-bottom .fb-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
@@ -437,7 +439,6 @@
       .value-item:nth-last-child(-n + 3) { border-bottom: 1px solid rgba(23,26,28,.12); }
       .value-item:nth-last-child(-n + 2) { border-bottom: 0; }
       .footer-top { grid-template-columns: 1fr 1fr; }
-      .footer-top > div:first-child { grid-column: 1 / -1; }
     }
     @media (max-width: 760px) {
       .nav-toggle { display: inline-flex; }
@@ -466,7 +467,7 @@
       .value-item, .value-item:nth-child(2n), .value-item:nth-child(3n) { border-right: 0; border-bottom: 1px solid rgba(23,26,28,.12); }
       .value-item:last-child { border-bottom: 0; }
       .about-card { height: auto; min-height: 0; flex-direction: column; }
-      .about-card-image { flex: none; width: 100%; height: 190px; border-right: 0; border-bottom: 1px solid rgba(var(--about-brand-rgb),.18); }
+      .about-card-image { flex: none; width: 100%; height: 190px; border-bottom: 0; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%); }
       .about-card-copy { flex: none; }
     }
 
@@ -505,7 +506,7 @@
 
   <!-- ===================== HERO ================== -->
   <section class="hero" id="home">
-    <div class="hero-background" aria-hidden="true"></div>
+    <div class="hero-background-slideshow" aria-hidden="true"></div>
     <div class="hero-background-overlay" aria-hidden="true"></div>
 
     <div class="wrap hero-content">
@@ -519,10 +520,12 @@
       <p class="label hero-solutions-label">Engineering Solutions For</p>
       <div class="hero-solutions">
         <a class="hero-solution-card pharma" href="/pharma" aria-label="Explore Pharmaceutical Engineering">
+          <span class="solution-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6"></path><path d="M10 3v5l-5.5 9.2A2.4 2.4 0 0 0 6.6 21h10.8a2.4 2.4 0 0 0 2.1-3.8L14 8V3"></path><path d="M7.5 15h9"></path><path d="m9.5 12 1.3 1.3 2.2-2.2"></path></svg></span>
           <span class="solution-name">Pharmaceutical Engineering</span>
           <span class="solution-arrow" aria-hidden="true">↗</span>
         </a>
         <a class="hero-solution-card energy" href="/energy" aria-label="Explore Renewable Energy">
+          <span class="solution-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C12 4.8 6.4 8.2 5 14c-.8 3.3 1.2 5.5 4.2 5.1 5.8-.7 8.8-6.4 10.3-14.6Z"></path><path d="M5.5 19.5c2.1-3.9 4.8-6.8 8.3-9.1"></path></svg></span>
           <span class="solution-name">Renewable Energy</span>
           <span class="solution-arrow" aria-hidden="true">↗</span>
         </a>
@@ -546,19 +549,6 @@
           </div>
         </div>
         <div class="about-cards reveal" data-d="1">
-          <article class="about-card about-card-purpose">
-            <div class="about-card-copy">
-              <span class="about-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10"></circle><circle cx="16" cy="16" r="4"></circle><path d="M16 2v5M16 25v5M2 16h5M25 16h5"></path></svg>
-              </span>
-              <h3>Our Purpose</h3>
-              <span class="about-card-rule" aria-hidden="true"></span>
-              <p>To deliver engineering solutions that combine technical excellence, disciplined execution, and strategic insight to maximize value and minimize risk.</p>
-            </div>
-            <div class="about-card-image">
-              <img src="/pharma/assets/images/overview.jpg" alt="Pharmaceutical engineering facility" />
-            </div>
-          </article>
           <article class="about-card about-card-vision">
             <div class="about-card-copy">
               <span class="about-card-icon" aria-hidden="true">
@@ -569,7 +559,20 @@
               <p>To shape a future where world-class Life Sciences and Renewable Energy facilities enable healthier lives and a more sustainable world.</p>
             </div>
             <div class="about-card-image">
-              <img src="/energy/assets/images/overview.jpg" alt="Renewable energy infrastructure" />
+              <img src="/assets/about-us/about-vision.jpg" alt="Renewable energy infrastructure" />
+            </div>
+          </article>
+          <article class="about-card about-card-purpose">
+            <div class="about-card-copy">
+              <span class="about-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10"></circle><circle cx="16" cy="16" r="4"></circle><path d="M16 2v5M16 25v5M2 16h5M25 16h5"></path></svg>
+              </span>
+              <h3>Our Purpose</h3>
+              <span class="about-card-rule" aria-hidden="true"></span>
+              <p>To deliver engineering solutions that combine technical excellence, disciplined execution, and strategic insight to maximize value and minimize risk.</p>
+            </div>
+            <div class="about-card-image">
+              <img src="/assets/about-us/about-purpose.jpg" alt="Pharmaceutical engineering facility" />
             </div>
           </article>
         </div>
@@ -630,10 +633,6 @@
     <div class="footer-wordmark" aria-hidden="true">GONVERT</div>
     <div class="wrap">
       <div class="footer-top">
-        <div>
-          <!-- symbol only — a subtle brand signature, no footer wordmark -->
-          <img class="footer-symbol" src="/assets/logos/gonvert-icon.svg" alt="GONVERT" />
-        </div>
         <div>
           <h4>Navigation</h4>
           <ul>
@@ -706,6 +705,35 @@
     /* Keep Market Reach outside body's animated transform context so fixed positioning stays viewport-relative. */
     document.documentElement.appendChild(document.getElementById('panel-market-reach'));
 
+    /* Replace, add, or reorder these paths to update the hero slideshow. */
+    const heroImageSources = [
+      '/assets/hero/hero-pharma.jpg',
+      '/assets/hero/hero-industrial.jpg',
+      '/assets/hero/hero-renewable.jpg',
+      '/assets/hero/hero-future.jpg'
+    ];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const heroSlideshow = document.querySelector('.hero-background-slideshow');
+    if (heroSlideshow) {
+      const heroLayers = heroImageSources.map((src, index) => {
+        const preload = new Image();
+        preload.src = src;
+        const layer = document.createElement('div');
+        layer.className = 'hero-background' + (index === 0 ? ' is-active' : '');
+        layer.style.backgroundImage = `url("${src}")`;
+        heroSlideshow.appendChild(layer);
+        return layer;
+      });
+      if (!reduceMotion && heroLayers.length > 1) {
+        let activeIndex = 0;
+        window.setInterval(() => {
+          heroLayers[activeIndex].classList.remove('is-active');
+          activeIndex = (activeIndex + 1) % heroLayers.length;
+          heroLayers[activeIndex].classList.add('is-active');
+        }, 7000);
+      }
+    }
+
     /* always begin at the Hero on load / refresh — never restore or jump to a section */
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
@@ -772,8 +800,6 @@
     document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
     /* scroll-driven spatial choreography for the Values section (calm, continuous) */
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     const valuesEl = document.getElementById('values');
     if (valuesEl && !reduceMotion) {
       let ticking = false;
