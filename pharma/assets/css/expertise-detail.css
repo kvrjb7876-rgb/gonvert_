@@ -29,3 +29,7 @@
     @media (max-width: 620px) {
       .services-cta .closing-cta-overlay { background: linear-gradient(to bottom, rgba(19,24,27,.36) 0%, rgba(19,24,27,.84) 58%, rgba(19,24,27,.96) 100%); }
     }
+
+/* Approved body-copy headings; retain the established service-detail type scale. */
+.expertise-content h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; margin-bottom: 1.3rem; }
+.expertise-content h3 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.3; margin: 2rem 0 1rem; }
