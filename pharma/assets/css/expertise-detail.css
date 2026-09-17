@@ -1,0 +1,31 @@
+/* Shared Pharma Expertise-detail shell, based on the approved service-detail template. */
+    .detail-hero { position: relative; overflow: hidden; min-height: clamp(380px, 52vh, 480px); display: flex; align-items: center; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .detail-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+    .detail-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(248,248,246,.91) 0%, rgba(248,248,246,.86) 24%, rgba(248,248,246,.52) 46%, rgba(248,248,246,.14) 65%, rgba(248,248,246,0) 78%); }
+    .detail-hero-inner { position: relative; z-index: 1; padding-block: clamp(2.5rem,5vw,4rem); }
+    .detail-hero-copy { width: 46%; max-width: 650px; }
+    .detail-hero h1 { font-size: clamp(2rem,3.8vw,3.4rem); font-weight: 500; line-height: 1.08; letter-spacing: -.035em; margin-bottom: 1.05rem; }
+    .detail-hero-rule { display: block; width: 52px; height: 3px; background: var(--accent); margin-bottom: 1.05rem; }
+    .detail-hero-copy p { max-width: 54ch; color: var(--ink-2); font-size: clamp(.95rem,1.2vw,1.05rem); line-height: 1.65; }
+    .article-aside { border: 1px solid var(--line); border-image: none; }
+    .article-aside li a:hover { color: var(--ink); }
+.services-cta { position: relative; overflow: hidden; background: var(--dark-2); min-height: 150px; padding-block: clamp(1.5rem,2.5vw,2rem); display: flex; align-items: center; }
+    .closing-cta-media { position: absolute; inset: 0; }
+    .closing-cta-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; }
+    .closing-cta-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(19,24,27,.94) 0%, rgba(19,24,27,.8) 38%, rgba(19,24,27,.4) 72%, rgba(19,24,27,.5) 100%); }
+
+.services-cta .closing-cta-media img { object-position: 68% center; }
+.services-cta-content { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem 2rem; }
+.services-cta h2 { color: #fff; font-size: clamp(1.4rem,2.2vw,1.9rem); margin: 0; }
+.services-cta-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.services-cta .btn { font-size: .82rem; padding: .65rem 1.1rem; }
+
+    @media (max-width: 760px) {
+      .detail-hero { min-height: 420px; align-items: flex-end; }
+      .detail-hero-copy { width: 100%; max-width: 620px; }
+      .detail-hero-inner { padding-block: 2.5rem; }
+      .detail-hero-overlay { background: linear-gradient(to bottom, rgba(248,248,246,.12) 0%, rgba(248,248,246,.68) 44%, rgba(248,248,246,.96) 70%, rgba(248,248,246,.99) 100%); }
+    }
+    @media (max-width: 620px) {
+      .services-cta .closing-cta-overlay { background: linear-gradient(to bottom, rgba(19,24,27,.36) 0%, rgba(19,24,27,.84) 58%, rgba(19,24,27,.96) 100%); }
+    }
