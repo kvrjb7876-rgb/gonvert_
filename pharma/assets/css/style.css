@@ -353,24 +353,41 @@ a.proc:hover .p-arrow { transform: translateX(4px); color: var(--accent-ink); }
 .cta-band h2 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); letter-spacing: -0.02em; max-width: 34ch; }
 .cta-band .cta-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
 
-/* ================= FOOTER (shared — logo only, no wordmark text beside it) ================= */
-footer.site-footer { background: var(--dark-2); color: rgba(255,255,255,.64); padding-top: clamp(3.2rem, 6vw, 4.4rem); position: relative; overflow: hidden; box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+/* ================= FOOTER (corporate visuals from the main homepage; Pharma navigation) ================= */
+footer.site-footer {
+  --navy: #1a1d1f; --navy-2: #202426;
+  --accent: #4a6472; --maxw: 1560px; --gutter: clamp(20px, 5vw, 64px);
+  background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 46%);
+  color: rgba(255,255,255,.66); padding-top: clamp(3.2rem, 6vw, 4.4rem);
+  position: relative; overflow: hidden; scroll-margin-top: var(--header-h);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+/* faint architectural grid at the top → same visual language as Hero/Companies, in the dark tone; makes the footer feel part of the same system */
+footer.site-footer::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 360px; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 78%);
+}
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; position: relative; z-index: 1; }
-.footer-symbol { height: 40px; width: auto; opacity: .95; display: block; }
-.footer-note { margin-top: 1.4rem; max-width: 34ch; color: rgba(255,255,255,.55); font-size: .95rem; }
 footer h4 { font-family: var(--f-label); color: rgba(255,255,255,.5); font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; margin: 0 0 1.3rem; }
 footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
-footer ul a { color: rgba(255,255,255,.72); font-size: .95rem; transition: color .25s var(--ease); display: inline-flex; align-items: center; gap: .4rem; }
+footer ul a { color: rgba(255,255,255,.75); font-size: .96rem; transition: color .25s var(--ease); }
 footer ul a:hover { color: var(--accent); }
-footer ul a .ext { opacity: .6; }
-.contact-line { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .9rem; color: rgba(255,255,255,.72); font-size: .95rem; }
-.contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
-.footer-wordmark { position: absolute; right: -2%; bottom: -10%; font-family: var(--f-display); font-weight: 600; font-size: clamp(5rem, 18vw, 15rem); color: rgba(255,255,255,.028); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; }
+footer.site-footer .contact-line { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .9rem; color: rgba(255,255,255,.75); font-size: .96rem; }
+footer.site-footer .contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
+.footer-wordmark { position: absolute; right: 13%; bottom: -4%; font-family: var(--f-display); font-weight: 600; font-size: clamp(4.5rem, 13vw, 11rem); color: rgba(255,255,255,.03); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; z-index: 0; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.10); padding-block: 1.5rem; display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
 .footer-bottom .label { color: rgba(255,255,255,.4); font-size: .66rem; }
 .footer-bottom .fb-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
 .footer-bottom .fb-links a { color: rgba(255,255,255,.55); }
 .footer-bottom .fb-links a:hover { color: var(--accent); }
+.footer-note { margin: 0; max-width: 34ch; color: rgba(255,255,255,.55); font-size: .95rem; }
+.footer-sign { display: block; }
+footer ul a { display: inline-flex; align-items: center; gap: .4rem; }
+footer ul a .ext { opacity: .6; }
 
 @media (max-width: 980px) {
   .footer-top { grid-template-columns: 1fr 1fr; } .footer-top > div:first-child { grid-column: 1 / -1; }

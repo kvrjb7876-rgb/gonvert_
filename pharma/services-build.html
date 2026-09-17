@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | GONVERT Pharma Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/pharma/assets/css/style.css" />
+<style>
+    .hero { position: relative; overflow: hidden; min-height: clamp(540px, 76vh, 740px); display: flex; align-items: center; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .hero-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+    .hero-background-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(248,248,246,.91) 0%, rgba(248,248,246,.86) 24%, rgba(248,248,246,.52) 46%, rgba(248,248,246,.14) 65%, rgba(248,248,246,0) 78%); }
+    .hero-grid-outer { position: relative; z-index: 1; width: 100%; padding-block: clamp(4rem, 8vw, 6.5rem); }
+    .hero-copy { max-width: 710px; text-align: left; }
+    .hero h1 { max-width: 11ch; font-size: clamp(2.3rem, 5.2vw, 4.2rem); font-weight: 500; line-height: 1; letter-spacing: -0.035em; color: var(--ink); margin-bottom: 1.05rem; }
+    .hero-divider { display: block; width: 52px; height: 3px; background: var(--accent); margin-bottom: 1.05rem; }
+    .hero-subtitle { max-width: 48ch; color: var(--accent-ink); font-size: clamp(.96rem, 1.2vw, 1.05rem); font-weight: 600; line-height: 1.4; margin-bottom: .8rem; }
+    .hero-description { max-width: 58ch; color: var(--ink-2); font-size: clamp(.93rem, 1.05vw, 1rem); line-height: 1.65; margin-bottom: 1.7rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: flex-start; }
+    .hero-actions .btn { font-size: .9rem; padding: .78rem 1.4rem; }
+    @media (max-width: 760px) {
+      .hero { min-height: 640px; align-items: flex-end; }
+      .hero-background { object-position: 68% center; }
+      .hero-background-overlay { background: linear-gradient(to bottom, rgba(248,248,246,.12) 0%, rgba(248,248,246,.68) 44%, rgba(248,248,246,.96) 70%, rgba(248,248,246,.99) 100%); }
+      .hero-grid-outer { padding-block: 3rem 3.75rem; }
+      .hero-copy { max-width: 620px; }
+      .hero h1 { max-width: 12ch; font-size: clamp(2.25rem, 9.5vw, 3.5rem); }
+    }
+    @media (max-width: 620px) { .hero-actions .btn { width: 100%; justify-content: center; } }
+
+
+.services-hero .hero-copy { width: 44%; max-width: none; }
+.services-hero h1 { max-width: none; font-size: clamp(2.1rem, 3.35vw, 3.3rem); line-height: 1.08; }
+.services-label { display: block; color: var(--accent-ink); margin-bottom: 1.2rem; }
+.services-hero .hero-description { margin-bottom: 0; }
+.section-head { max-width: 760px; margin: 0 auto clamp(2rem,4vw,2.8rem); text-align: center; }
+.section-head h2 { font-size: clamp(1.7rem,3vw,2.35rem); letter-spacing: -.028em; margin-bottom: .65rem; }
+.section-rule { display: block; width: 48px; height: 3px; background: var(--accent); margin: 0 auto; }
+.section-head p { margin-top: 1rem; color: var(--muted); font-size: .96rem; }
+.services-section { background: var(--paper); }
+.services-cards .svc { min-height: 0; background: var(--paper); box-shadow: 0 14px 30px -28px rgba(20,24,27,.25); }
+/* Legacy capability hover, isolated from the scroll-reveal transform. */
+.services-cards .svc {
+  translate: 0 0;
+  transition: transform .5s var(--ease), opacity .55s var(--ease), translate .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
+  transition-delay: var(--card-reveal-delay, 0s), var(--card-reveal-delay, 0s), 0s, 0s, 0s;
+}
+.services-cards .svc[data-d="1"] { --card-reveal-delay: .06s; }
+.services-cards .svc[data-d="2"] { --card-reveal-delay: .12s; }
+.services-cards .svc:hover {
+  transform: none; translate: 0 -3px;
+  border-color: rgba(var(--accent-rgb),.3);
+  box-shadow: 0 2px 8px rgba(20,24,27,.03), 0 24px 44px -30px rgba(20,24,27,.18);
+}
+.services-cards .svc::before, .services-cards .svc::after { display: block; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .services-cards .svc.reveal:not(.in):hover { transform: translateY(14px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .services-cards .svc, .services-cards .svc::before, .services-cards .svc::after, .services-cards .svc .svc-read svg { transition: none; animation: none; }
+  .services-cards .svc:hover { translate: none; }
+  .services-cards .svc:hover .svc-read svg { transform: none; }
+}
+.services-cards .svc h3 { margin-top: 1.1rem; }
+.services-cards .svc:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; }
+.services-cards .svc-top { justify-content: flex-start; align-items: center; gap: .65rem; }
+.services-cards .svc-foot { margin-top: auto; padding-top: 1.35rem; }
+.service-icon { display: block; width: 32px; height: 32px; color: var(--accent-ink); flex: none; }
+.service-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.services-cards .unavailable { opacity: .55; }
+.process-section { background: var(--bg); border-block: 1px solid var(--line); }
+    /* Reuse Overview flow geometry and its #flowRow observer (160ms per stage). */
+    #delivery-process .flow-step { min-width: 0; }
+    #delivery-process .fs-node svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+    @media (min-width: 901px) {
+      #delivery-process .flow-step { text-align: center; }
+      #delivery-process .fs-node { margin-inline: auto; }
+      #delivery-process .flow::before { left: calc(100% / 12); right: calc(100% / 12); }
+      #delivery-process .flow-arrow { top: 22.5px; left: 100%; right: auto; transform: translate(-50%, -50%); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #delivery-process .flow-step { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+      #delivery-process .flow-step.in { opacity: 1; transform: none; }
+      #delivery-process .flow::before { opacity: 0; transition: opacity .4s var(--ease); }
+      #delivery-process .flow:has(.flow-step.in)::before { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #delivery-process .fs-node { border-color: var(--accent); background: var(--accent); color: #fff; transition: none; }
+    }
+
+
+.reasons-section { background: var(--paper); }
+.reasons-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); }
+.reason { padding: 1.5rem clamp(.7rem,1.4vw,1.3rem); border-left: 1px solid var(--line-2); text-align: center; }
+.reason:first-child { border-left: 0; }
+.reason .service-icon { margin: 0 auto 1rem; }
+.reason h3 { font-size: clamp(.98rem,1.35vw,1.12rem); line-height: 1.25; margin-bottom: .55rem; }
+.reason p { font-size: .88rem; line-height: 1.55; color: var(--muted); }
+.services-cta { position: relative; overflow: hidden; background: var(--dark-2); min-height: 150px; padding-block: clamp(1.5rem,2.5vw,2rem); display: flex; align-items: center; }
+    .closing-cta-media { position: absolute; inset: 0; }
+    .closing-cta-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; }
+    .closing-cta-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(19,24,27,.94) 0%, rgba(19,24,27,.8) 38%, rgba(19,24,27,.4) 72%, rgba(19,24,27,.5) 100%); }
+
+.services-cta .closing-cta-media img { object-position: 68% center; }
+.services-cta-content { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem 2rem; }
+.services-cta h2 { color: #fff; font-size: clamp(1.4rem,2.2vw,1.9rem); margin: 0; }
+.services-cta-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.services-cta .btn { font-size: .82rem; padding: .65rem 1.1rem; }
+@media (max-width: 980px) { .reasons-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 1rem; } .reason:nth-child(odd) { border-left: 0; } }
+@media (max-width: 760px) { .services-hero .hero-copy { width: 100%; max-width: 620px; } .services-hero h1 { font-size: clamp(2.1rem,7vw,3rem); } }
+@media (max-width: 620px) { .reasons-grid { grid-template-columns: 1fr; } .reason { border-left: 0; } .services-cta .closing-cta-overlay { background: linear-gradient(to bottom, rgba(19,24,27,.36) 0%, rgba(19,24,27,.84) 58%, rgba(19,24,27,.96) 100%); } }
+</style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="/pharma" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="/pharma/assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="/pharma/">Overview</a></li>
+          <li><a class="nav-link active" href="/pharma/services-build.html">Services</a></li>
+          <li><a class="nav-link" href="/pharma/expertise-build.html">Expertise</a></li>
+          <li><a class="nav-link" href="/pharma/global-reach">Global Reach</a></li>
+          <li><a class="nav-link" href="/pharma/overview">Overview LG</a></li>
+          <li><a class="nav-link" href="/pharma/services">Services LG</a></li>
+          <li><a class="nav-link" href="/pharma/expertise">Expertise LG</a></li>
+          <li><a class="nav-cta" href="/pharma/contact">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+<section class="hero services-hero" aria-labelledby="services-title">
+<!-- Services-only image reference: replace this src independently of the Pharma homepage hero. -->
+<img class="hero-background" src="/pharma/assets/images/Pharma-Hero-services.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="high" />
+<div class="hero-background-overlay" aria-hidden="true"></div>
+<div class="wrap hero-grid-outer"><div class="hero-copy reveal"><span class="label services-label">SERVICES</span><h1 id="services-title">End-to-End GMP Solutions<br>From Feasibility to Validation</h1><span class="hero-divider" aria-hidden="true"></span><p class="hero-subtitle">One partner for your entire Life Science project.</p><p class="hero-description">Gonvert delivers integrated EPCm solutions for Life Science facilities. Our services cover the entire project lifecycle, helping you reduce risk, ensure compliance, accelerate delivery, and achieve long-term operational success.</p></div></div>
+</section>
+<section class="block services-section" id="our-services"><div class="wrap"><div class="section-head reveal"><h2>Our Services</h2><span class="section-rule" aria-hidden="true"></span><p>A complete set of services to plan, design, build, qualify, and optimize your GMP facility.</p></div><div class="svc-grid services-cards"><a class="svc is-link reveal" data-d="0" href="/pharma/services/conceptual-basic-design"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.5-3.1 2.4-4.7 5.5-4.7s5 1.6 5.5 4.7M14.5 14.8c2.8-.8 5 .6 5.7 3.7"/></svg></span></div><h3>Feasibility, Consulting &amp; Planning</h3><p>Make the right decisions before you build. We turn your project goals into a compliant, bankable plan that de-risks execution.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="svc is-link reveal" data-d="1" href="/pharma/services/detailed-engineering"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 8h16M9 8v13M9 15h11M14 8v7M4 17h5"/></svg></span></div><h3>Engineering &amp; Design</h3><p>Turn complex requirements into buildable designs. We engineer GMP-compliant facilities that are efficient, safe, and ready for regulatory approval.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="svc is-link reveal" data-d="2" href="/pharma/services/process-clean-utilities"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11H18l2-8H6M8 11h11"/><circle cx="9" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span></div><h3>Strategic Procurement</h3><p>Secure the right suppliers, equipment, and materials at the right time. We manage procurement strategically to reduce risk, protect schedules, and ensure quality.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="svc is-link reveal" data-d="0" href="/pharma/services/cleanroom-hvac"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16v-2a8 8 0 0 1 5-7.4M15 6.6a8 8 0 0 1 5 7.4v2M9 12V5h6v7"/><rect x="2" y="16" width="20" height="4" rx="1"/></svg></span></div><h3>Project &amp; Construction Management</h3><p>We manage your project with rigor and transparency. Our goal is on-time, on-budget delivery with uncompromised quality, safety, and compliance.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="svc is-link reveal" data-d="1" href="/pharma/services/commissioning-qualification"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5H5v16h14V5h-3"/><rect x="8" y="3" width="8" height="4" rx="1"/><path d="m8 12 1.5 1.5L12 11M14 12h2M8 17h8"/></svg></span></div><h3>Commissioning, Qualification &amp; Validation</h3><p>We design and implement CQV programs that align with your regulatory strategy, operational objectives, and project timeline.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="svc is-link reveal" data-d="2" href="/pharma/services/gmp-compliance-validation"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 17v-4M12 17v-6M17 17V9M6 9l5-3 4 1 5-4M16 3h4v4"/></svg></span></div><h3>GMP Upgrades &amp; Optimization</h3><p>We assess, prioritize, and implement GMP upgrades with minimal impact on your operations. Our risk-based approach closes compliance gaps and prepares you for successful regulatory inspections.</p><div class="svc-foot"><span class="svc-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a></div></div></section>
+<section class="block process-section" id="delivery-process"><div class="wrap"><div class="section-head reveal"><h2>Our Delivery Process</h2><span class="section-rule" aria-hidden="true"></span></div><div class="flow flow-6" id="flowRow"><div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6M9 11h6M9 15h3"></path></svg></div><h3 class="fs-verb">Discover</h3><p class="fs-desc">Understand your goals, process, and requirements.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 19 6-14 4 10 6-5"></path><path d="M4 19h16"></path></svg></div><h3 class="fs-verb">Plan</h3><p class="fs-desc">Develop strategies, evaluate options, and define the roadmap.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 8h16M9 8v13M9 15h11M14 8v7M4 17h5"/></svg></div><h3 class="fs-verb">Design</h3><p class="fs-desc">Create compliant, efficient, and buildable solutions.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16M6 11V7h12v4M8 7V4h8v3M5 11v9h14v-9"></path><path d="M9 15h6"></path></svg></div><h3 class="fs-verb">Deliver</h3><p class="fs-desc">Execute with quality, safety, and schedule discipline.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v4h4M9 13l2 2 4-4"></path></svg></div><h3 class="fs-verb">Validate</h3><p class="fs-desc">Commission, qualify, and validate for compliance.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"></path><path d="M3 9h18"></path></svg></div><h3 class="fs-verb">Support</h3><p class="fs-desc">Support operational readiness and continuous improvement.</p></div></div></div></section>
+<section class="block reasons-section" id="why-clients"><div class="wrap"><div class="section-head reveal"><h2>Why Clients Choose Gonvert</h2><span class="section-rule" aria-hidden="true"></span></div><div class="reasons-grid"><div class="reason reveal" data-d="0"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.3-2.7 7.5-7 10-4.3-2.5-7-5.7-7-10V6l7-3Z"></path><path d="m8.5 12 2.2 2.2 4.8-4.8"></path></svg></span><h3>Compliance by Design</h3><p>GMP and regulatory requirements are integrated into every stage of the project.</p></div>
+<div class="reason reveal" data-d="1"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="m17.5 6.5 2-2M12 4V2"></path></svg></span><h3>Risk-Based Approach</h3><p>We identify critical risks early and focus on what matters most for product quality and patient safety.</p></div>
+<div class="reason reveal" data-d="2"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3.5 19c.5-3.1 2.4-4.7 5.5-4.7s5 1.6 5.5 4.7M14.5 14.8c2.8-.8 5 .6 5.7 3.7"></path></svg></span><h3>End-to-End Accountability</h3><p>One partner, one team, one accountable delivery model from concept to operational readiness.</p></div>
+<div class="reason reveal" data-d="3"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v5l-5.5 9.2A2.4 2.4 0 0 0 6.6 21h10.8a2.4 2.4 0 0 0 2.1-3.8L14 8V3"></path><path d="M7.5 15h9"></path></svg></span><h3>Science-Based Decisions</h3><p>Decisions are driven by science, data, and proven methodologies for sustainable outcomes.</p></div>
+<div class="reason reveal" data-d="4"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"></path><path d="M3 9h18"></path></svg></span><h3>Proven Experience</h3><p>Decades of experience delivering complex Life Science facilities worldwide.</p></div></div></div></section>
+<section class="services-cta" aria-labelledby="services-cta-title"><div class="closing-cta-media" aria-hidden="true"><img src="/pharma/assets/images/Pharma-cta.png" alt="" loading="lazy" decoding="async" /></div><div class="closing-cta-overlay" aria-hidden="true"></div><div class="wrap"><div class="services-cta-content reveal"><h2 id="services-cta-title">Let&#8217;s design your next facility.</h2><div class="services-cta-actions"><a class="btn btn-primary" href="/pharma/contact"><span>Discuss Your Project</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></section>
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">GONVERT</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="/" aria-label="Part of GONVERT Technology Solutions"><p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p></a>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/pharma">Home</a></li>
+            <li><a href="/pharma/overview">Overview</a></li>
+            <li><a href="/pharma/services">Services</a></li>
+            <li><a href="/pharma/expertise">Expertise</a></li>
+            <li><a href="/pharma/global-reach">Global Reach</a></li>
+            <li><a href="/pharma/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="/">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="/energy">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.75)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Technology Solutions Co. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="/pharma/services">Services</a>
+          <a href="/pharma/expertise">Expertise</a>
+          <a href="/pharma/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/pharma/assets/js/main.js"></script>
+</body>
+</html>

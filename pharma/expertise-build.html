@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expertise | GONVERT Pharma Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/pharma/assets/css/style.css" />
+<style>
+    .hero { position: relative; overflow: hidden; min-height: clamp(540px, 76vh, 740px); display: flex; align-items: center; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .hero-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+    .hero-background-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(248,248,246,.91) 0%, rgba(248,248,246,.86) 24%, rgba(248,248,246,.52) 46%, rgba(248,248,246,.14) 65%, rgba(248,248,246,0) 78%); }
+    .hero-grid-outer { position: relative; z-index: 1; width: 100%; padding-block: clamp(4rem, 8vw, 6.5rem); }
+    .hero-copy { max-width: 710px; text-align: left; }
+    .hero h1 { max-width: 11ch; font-size: clamp(2.3rem, 5.2vw, 4.2rem); font-weight: 500; line-height: 1; letter-spacing: -0.035em; color: var(--ink); margin-bottom: 1.05rem; }
+    .hero-divider { display: block; width: 52px; height: 3px; background: var(--accent); margin-bottom: 1.05rem; }
+    .hero-subtitle { max-width: 48ch; color: var(--accent-ink); font-size: clamp(.96rem, 1.2vw, 1.05rem); font-weight: 600; line-height: 1.4; margin-bottom: .8rem; }
+    .hero-description { max-width: 58ch; color: var(--ink-2); font-size: clamp(.93rem, 1.05vw, 1rem); line-height: 1.65; margin-bottom: 1.7rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: flex-start; }
+    .hero-actions .btn { font-size: .9rem; padding: .78rem 1.4rem; }
+    @media (max-width: 760px) {
+      .hero { min-height: 640px; align-items: flex-end; }
+      .hero-background { object-position: 68% center; }
+      .hero-background-overlay { background: linear-gradient(to bottom, rgba(248,248,246,.12) 0%, rgba(248,248,246,.68) 44%, rgba(248,248,246,.96) 70%, rgba(248,248,246,.99) 100%); }
+      .hero-grid-outer { padding-block: 3rem 3.75rem; }
+      .hero-copy { max-width: 620px; }
+      .hero h1 { max-width: 12ch; font-size: clamp(2.25rem, 9.5vw, 3.5rem); }
+    }
+    @media (max-width: 620px) { .hero-actions .btn { width: 100%; justify-content: center; } }
+
+
+.expertise-hero .hero-copy { width: 44%; max-width: none; }
+.expertise-hero h1 { max-width: none; font-size: clamp(2.1rem, 3.35vw, 3.3rem); line-height: 1.08; }
+.expertise-label { display: block; color: var(--accent-ink); margin-bottom: 1.2rem; }
+.expertise-hero .hero-description { margin-bottom: 0; }
+.section-head { max-width: 760px; margin: 0 auto clamp(2rem,4vw,2.8rem); text-align: center; }
+.section-head h2 { font-size: clamp(1.7rem,3vw,2.35rem); letter-spacing: -.028em; margin-bottom: .65rem; }
+.section-rule { display: block; width: 48px; height: 3px; background: var(--accent); margin: 0 auto; }
+.section-head p { margin-top: 1rem; color: var(--muted); font-size: .96rem; }
+.expertise-section { background: var(--paper); }
+.expertise-cards .svc { min-height: 0; background: var(--paper); box-shadow: 0 14px 30px -28px rgba(20,24,27,.25); }
+/* Legacy capability hover, isolated from the scroll-reveal transform. */
+.expertise-cards .svc {
+  translate: 0 0;
+  transition: transform .5s var(--ease), opacity .55s var(--ease), translate .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
+  transition-delay: var(--card-reveal-delay, 0s), var(--card-reveal-delay, 0s), 0s, 0s, 0s;
+}
+.expertise-cards .svc[data-d="1"] { --card-reveal-delay: .06s; }
+.expertise-cards .svc[data-d="2"] { --card-reveal-delay: .12s; }
+.expertise-cards .svc:hover {
+  transform: none; translate: 0 -3px;
+  border-color: rgba(var(--accent-rgb),.3);
+  box-shadow: 0 2px 8px rgba(20,24,27,.03), 0 24px 44px -30px rgba(20,24,27,.18);
+}
+.expertise-cards .svc::before, .expertise-cards .svc::after { display: block; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .expertise-cards .svc.reveal:not(.in):hover { transform: translateY(14px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .expertise-cards .svc, .expertise-cards .svc::before, .expertise-cards .svc::after, .expertise-cards .svc .svc-read svg { transition: none; animation: none; }
+  .expertise-cards .svc:hover { translate: none; }
+  .expertise-cards .svc:hover .svc-read svg { transform: none; }
+}
+.expertise-cards .svc h3 { margin-top: 1.1rem; }
+.expertise-cards .svc:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; }
+.expertise-cards .svc-top { justify-content: flex-start; align-items: center; gap: .65rem; }
+.expertise-cards .svc-foot { margin-top: auto; padding-top: 1.35rem; }
+.service-icon { display: block; width: 32px; height: 32px; color: var(--accent-ink); flex: none; }
+.service-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.expertise-cards .unavailable { opacity: .55; }
+.process-section { background: var(--bg); border-block: 1px solid var(--line); }
+    /* Reuse Overview flow geometry and its #flowRow observer (160ms per stage). */
+    #expertise-methodology .flow-step { min-width: 0; }
+    #expertise-methodology .fs-node svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+    @media (min-width: 901px) {
+      #expertise-methodology .flow-step { text-align: center; }
+      #expertise-methodology .fs-node { margin-inline: auto; }
+      #expertise-methodology .flow::before { left: calc(100% / 12); right: calc(100% / 12); }
+      #expertise-methodology .flow-arrow { top: 22.5px; left: 100%; right: auto; transform: translate(-50%, -50%); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #expertise-methodology .flow-step { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+      #expertise-methodology .flow-step.in { opacity: 1; transform: none; }
+      #expertise-methodology .flow::before { opacity: 0; transition: opacity .4s var(--ease); }
+      #expertise-methodology .flow:has(.flow-step.in)::before { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #expertise-methodology .fs-node { border-color: var(--accent); background: var(--accent); color: #fff; transition: none; }
+    }
+
+
+.services-cta { position: relative; overflow: hidden; background: var(--dark-2); min-height: 150px; padding-block: clamp(1.5rem,2.5vw,2rem); display: flex; align-items: center; }
+    .closing-cta-media { position: absolute; inset: 0; }
+    .closing-cta-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; }
+    .closing-cta-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(19,24,27,.94) 0%, rgba(19,24,27,.8) 38%, rgba(19,24,27,.4) 72%, rgba(19,24,27,.5) 100%); }
+
+.services-cta .closing-cta-media img { object-position: 68% center; }
+.services-cta-content { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem 2rem; }
+.services-cta h2 { color: #fff; font-size: clamp(1.4rem,2.2vw,1.9rem); margin: 0; }
+.services-cta-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.services-cta .btn { font-size: .82rem; padding: .65rem 1.1rem; }
+@media (max-width: 760px) { .expertise-hero .hero-copy { width: 100%; max-width: 620px; } .expertise-hero h1 { font-size: clamp(2.1rem,7vw,3rem); } }
+@media (max-width: 620px) { .services-cta .closing-cta-overlay { background: linear-gradient(to bottom, rgba(19,24,27,.36) 0%, rgba(19,24,27,.84) 58%, rgba(19,24,27,.96) 100%); } }
+.expertise-cards { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.expertise-cards .svc[data-d="3"] { --card-reveal-delay: .18s; }
+.expertise-hero .hero-description + .hero-description { margin-top: 1rem; }
+.collaboration-copy { max-width: 760px; margin: 0 auto 2rem; text-align: center; color: var(--muted); }
+.partner-strip { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.partner-slot { min-height: 80px; border: 1px solid var(--line); border-radius: var(--r-sm); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .3rem; color: var(--muted); }
+.partner-placeholder { font-size: .65rem; color: var(--faint); }
+@media (max-width: 1100px) { .expertise-cards { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 760px) { .partner-strip { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 620px) { .expertise-cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <div class="header-brand">
+        <a href="/pharma" class="brand-link" aria-label="GONVERT Pharma Technology — home">
+          <img class="brand-logo header-logo" src="/pharma/assets/logos/gonvert-pharma-technology.svg" alt="GONVERT Pharma Technology" />
+        </a>
+      </div>
+      <nav class="primary" id="nav">
+        <ul>
+          <li><a class="nav-link" href="/pharma/">Overview</a></li>
+          <li><a class="nav-link" href="/pharma/services-build.html">Services</a></li>
+          <li><a class="nav-link active" href="/pharma/expertise-build.html">Expertise</a></li>
+          <li><a class="nav-link" href="/pharma/global-reach">Global Reach</a></li>
+          <li><a class="nav-link" href="/pharma/overview">Overview LG</a></li>
+          <li><a class="nav-link" href="/pharma/services">Services LG</a></li>
+          <li><a class="nav-link" href="/pharma/expertise">Expertise LG</a></li>
+          <li><a class="nav-cta" href="/pharma/contact">Discuss Your Project</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+<section class="hero expertise-hero" aria-labelledby="expertise-title"><img class="hero-background" src="/pharma/assets/images/Expertise-New/Expertise-Hero.png" alt="" aria-hidden="true" decoding="async" fetchpriority="high" /><div class="hero-background-overlay" aria-hidden="true"></div><div class="wrap hero-grid-outer"><div class="hero-copy reveal"><span class="label expertise-label">EXPERTISE</span><h1 id="expertise-title">Specialized Expertise for Complex GMP Facilities</h1><span class="hero-divider" aria-hidden="true"></span><p class="hero-subtitle">Engineering Knowledge. Regulatory Insight. Proven Delivery.</p><p class="hero-description">Successful Life Science facilities require more than engineering and construction. They require deep expertise in compliance, contamination control, verification, manufacturing technologies, and facility lifecycle management.</p><p class="hero-description">Our multidisciplinary experts apply science-based thinking and proven methodologies to deliver facilities that are compliant, efficient, and built for long-term operational success.</p></div></div></section>
+<section class="block expertise-section" id="expertise-areas"><div class="wrap"><div class="section-head reveal"><h2>Our Areas of Expertise</h2><span class="section-rule" aria-hidden="true"></span></div><div class="svc-grid expertise-cards"><article class="svc reveal" data-d="0"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6zM8 12l3 3 5-6"/></svg></span></div><h3>GMP &amp; Regulatory Compliance</h3><p>We help clients navigate FDA, EMA, WHO, MHRA, and EU GMP requirements through practical compliance strategies that support both project success and long-term operational performance.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="1"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V4h16v17M2 21h20M9 21v-7h6v7M8 8h8M8 11h8"/></svg></span></div><h3>Cleanroom &amp; Contamination Control</h3><p>From cleanroom architecture to contamination control strategies, we deliver solutions that support product quality, regulatory compliance, and Annex 1 expectations.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="2"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V10l6-4v5l6-4v6h6v8H3ZM17 13V3h3v10M6 17h2M11 17h2M16 17h2"/></svg></span></div><h3>Process &amp; Manufacturing Technologies</h3><p>Transform process requirements into robust manufacturing solutions. We support the selection, integration, and optimization of technologies that drive product quality and operational success.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="3"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m7 12 3 3 7-7M12 3V1M21 12h2"/></svg></span></div><h3>Risk-Based Qualification</h3><p>Focus verification where it matters most. We apply science- and risk-based methodologies to streamline qualification and accelerate facility readiness.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="0"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M9 11l3-3 3 3M12 8v5"/></svg></span></div><h3>Facility Upgrades &amp; Modernization</h3><p>Bring existing facilities up to today’s standards. We assess, prioritize, and implement improvements that strengthen compliance and extend facility value.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="1"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="16" rx="1"/><rect x="8" y="3" width="8" height="4" rx="1"/><path d="m8 12 2 2 4-4M8 17h8"/></svg></span></div><h3>Lifecycle Verification</h3><p>Reduce qualification effort without compromising compliance. We apply modern lifecycle verification principles that improve efficiency, traceability, and inspection readiness.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="2"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 4-3 7-8 10-5-3-8-6-8-10V6zM10 7h4M10 7v5l-2 4h8l-2-4V7"/></svg></span></div><h3>HPAPI &amp; Containment</h3><p>We develop science-based containment strategies to protect people, product, and process when handling HPAPI and other highly potent compounds.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article>
+<article class="svc reveal" data-d="3"><div class="svc-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM15 3v5h4M8 11h8M8 15h3M8 18h3m2-2 2 2 3-4"/></svg></span></div><h3>Data Integrity &amp; Digital Compliance</h3><p>We ensure ALCOA+ data integrity across systems and processes. Our digital solutions improve traceability, compliance, and operational efficiency.</p><div class="svc-foot"><span class="svc-read unavailable" aria-disabled="true">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></article></div></div></section>
+<section class="block process-section" id="expertise-methodology"><div class="wrap"><div class="section-head reveal"><h2>Our Expertise Methodology</h2><span class="section-rule" aria-hidden="true"></span></div><div class="flow flow-6" id="flowRow"><div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6M9 11h6M9 15h3"></path></svg></div><h3 class="fs-verb">Understand</h3><p class="fs-desc">We understand your process, risk profile, and business objectives.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 19 6-14 4 10 6-5"></path><path d="M4 19h16"></path></svg></div><h3 class="fs-verb">Assess</h3><p class="fs-desc">We assess risks, identify critical requirements, and define the strategy.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 8h16M9 8v13M9 15h11M14 8v7M4 17h5"/></svg></div><h3 class="fs-verb">Design</h3><p class="fs-desc">We apply science-based engineering and compliance by design.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16M6 11V7h12v4M8 7V4h8v3M5 11v9h14v-9"></path><path d="M9 15h6"></path></svg></div><h3 class="fs-verb">Implement</h3><p class="fs-desc">We execute with discipline, quality, and full lifecycle oversight.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v4h4M9 13l2 2 4-4"></path></svg></div><h3 class="fs-verb">Validate</h3><p class="fs-desc">We verify what matters, ensuring compliance and operational readiness.</p><svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="flow-step"><div class="fs-node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"></path><path d="M3 9h18"></path></svg></div><h3 class="fs-verb">Sustain</h3><p class="fs-desc">We support continuous improvement and lifecycle performance.</p></div></div></div></section>
+<section class="block collaboration-section"><div class="wrap"><div class="section-head reveal"><h2>Trusted Collaboration</h2><span class="section-rule" aria-hidden="true"></span></div><p class="collaboration-copy reveal">We work with respected European technology partners and global experts to deliver innovative, reliable, and future-ready solutions for Life Science manufacturing.</p><ul class="partner-strip reveal"><li class="partner-slot" aria-label="Exyte logo placeholder"><span>Exyte</span><span class="partner-placeholder">Logo placeholder</span></li>
+<li class="partner-slot" aria-label="IMA logo placeholder"><span>IMA</span><span class="partner-placeholder">Logo placeholder</span></li>
+<li class="partner-slot" aria-label="GEA logo placeholder"><span>GEA</span><span class="partner-placeholder">Logo placeholder</span></li>
+<li class="partner-slot" aria-label="BWT logo placeholder"><span>BWT</span><span class="partner-placeholder">Logo placeholder</span></li>
+<li class="partner-slot" aria-label="Sartorius logo placeholder"><span>Sartorius</span><span class="partner-placeholder">Logo placeholder</span></li></ul></div></section>
+<section class="services-cta" aria-labelledby="services-cta-title"><div class="closing-cta-media" aria-hidden="true"><img src="/pharma/assets/images/Pharma-cta.png" alt="" loading="lazy" decoding="async" /></div><div class="closing-cta-overlay" aria-hidden="true"></div><div class="wrap"><div class="services-cta-content reveal"><h2 id="services-cta-title">Engineering expertise that makes the difference.</h2><div class="services-cta-actions"><a class="btn btn-primary" href="/pharma/contact"><span>Discuss Your Project</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></section>
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-wordmark" aria-hidden="true">GONVERT</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-sign" href="/" aria-label="Part of GONVERT Technology Solutions"><p class="footer-note">Pharmaceutical engineering, GMP compliance, and controlled environments — one company within the GONVERT family.</p></a>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/pharma">Home</a></li>
+            <li><a href="/pharma/overview">Overview</a></li>
+            <li><a href="/pharma/services">Services</a></li>
+            <li><a href="/pharma/expertise">Expertise</a></li>
+            <li><a href="/pharma/global-reach">Global Reach</a></li>
+            <li><a href="/pharma/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="/">GONVERT Technology <span class="ext">↗</span></a></li>
+            <li><a href="/energy">GONVERT Renewable Energy <span class="ext">↗</span></a></li>
+          </ul>
+          <div class="contact-line" style="margin-top:1.6rem">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.75)">info@pharma.gonvert.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Istanbul, Türkiye</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="label">© 2026 GONVERT Technology Solutions Co. All rights reserved.</span>
+        <div class="fb-links label">
+          <a href="/pharma/services">Services</a>
+          <a href="/pharma/expertise">Expertise</a>
+          <a href="/pharma/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/pharma/assets/js/main.js"></script>
+</body>
+</html>
