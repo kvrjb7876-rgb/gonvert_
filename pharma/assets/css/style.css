@@ -413,3 +413,9 @@ footer ul a .ext { opacity: .6; }
   display: block;
 }
 .article-media .am-photo { border-radius: inherit; }
+
+/* Complete detail-page indexes: current row shares the existing link geometry. */
+.local-index .local-current { display: block; position: relative; padding: .75rem 0; border-top: 1px solid var(--line-2); font-size: .93rem; color: var(--ink); font-weight: 600; cursor: default; }
+.local-index li:first-child .local-current { border-top: 0; }
+.local-index .local-current .a-tag { display: block; font-family: var(--f-label); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 400; margin-bottom: .25rem; }
+.local-index .local-current::before { content: ""; position: absolute; left: -.65rem; top: .75rem; bottom: .75rem; width: 2px; background: var(--accent); }

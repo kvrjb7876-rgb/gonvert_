@@ -27,6 +27,21 @@
     }));
   }
 
+  /* Keep complete local indexes reachable on shorter screens without compressing rows. */
+  const localIndex = document.querySelector('.article-aside.local-index');
+  if (localIndex) {
+    const fitLocalIndex = () => {
+      localIndex.style.removeProperty('top');
+      if (window.matchMedia('(max-width: 900px)').matches) return;
+      const normalTop = parseFloat(getComputedStyle(localIndex).top);
+      const availableTop = window.innerHeight - localIndex.getBoundingClientRect().height - 16;
+      localIndex.style.top = Math.min(normalTop, availableTop) + 'px';
+    };
+    new ResizeObserver(fitLocalIndex).observe(localIndex);
+    window.addEventListener('resize', fitLocalIndex, { passive: true });
+    fitLocalIndex();
+  }
+
   const heroEl = document.querySelector('.hero');
   if (heroEl) requestAnimationFrame(() => heroEl.classList.add('in'));
 
@@ -36,6 +51,27 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  /* Reveal complete blocks already on screen, even when a long article cannot
+     meet the observer's percentage threshold. Keep lower blocks scroll-triggered. */
+  const revealInitialViewport = () => {
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < viewportHeight) {
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  };
+  const queueInitialReveal = () => requestAnimationFrame(revealInitialViewport);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', queueInitialReveal, { once: true });
+  } else {
+    queueInitialReveal();
+  }
+  // Recheck after images/fonts settle; the first pass never waits for them.
+  window.addEventListener('load', queueInitialReveal, { once: true });
 
   /* elegant page-to-page transition — fade + drift + a whisper of blur out, mirrored on
      entrance via pure CSS (no FOUC — the animation is set before any JS can run).
