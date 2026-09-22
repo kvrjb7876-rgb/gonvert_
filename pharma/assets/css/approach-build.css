@@ -1,0 +1,79 @@
+
+    .approach-page .hero{ position: relative; overflow: hidden; min-height: clamp(540px, 76vh, 740px); display: flex; align-items: center; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .approach-page .hero-background{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+    .approach-page .hero-background-overlay{ position: absolute; inset: 0; background: linear-gradient(to right, rgba(248,248,246,.91) 0%, rgba(248,248,246,.86) 24%, rgba(248,248,246,.52) 46%, rgba(248,248,246,.14) 65%, rgba(248,248,246,0) 78%); }
+    .approach-page .hero-grid-outer{ position: relative; z-index: 1; width: 100%; padding-block: clamp(4rem, 8vw, 6.5rem); }
+    .approach-page .hero-copy{ max-width: 710px; text-align: left; }
+    .approach-page .hero h1{ max-width: 11ch; font-size: clamp(2.3rem, 5.2vw, 4.2rem); font-weight: 500; line-height: 1; letter-spacing: -0.035em; color: var(--ink); margin-bottom: 1.05rem; }
+    .approach-page .hero-divider{ display: block; width: 52px; height: 3px; background: var(--accent); margin-bottom: 1.05rem; }
+    .approach-page .hero-subtitle{ max-width: 48ch; color: var(--accent-ink); font-size: clamp(.96rem, 1.2vw, 1.05rem); font-weight: 600; line-height: 1.4; margin-bottom: .8rem; }
+    .approach-page .hero-description{ max-width: 58ch; color: var(--ink-2); font-size: clamp(.93rem, 1.05vw, 1rem); line-height: 1.65; margin-bottom: 1.7rem; }
+    .approach-page .hero-actions{ display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: flex-start; }
+    .approach-page .hero-actions .btn{ font-size: .9rem; padding: .78rem 1.4rem; }
+   @media (max-width: 760px){
+      .approach-page .hero{ min-height: 640px; align-items: flex-end; }
+      .approach-page .hero-background{ object-position: 68% center; }
+      .approach-page .hero-background-overlay{ background: linear-gradient(to bottom, rgba(248,248,246,.12) 0%, rgba(248,248,246,.68) 44%, rgba(248,248,246,.96) 70%, rgba(248,248,246,.99) 100%); }
+      .approach-page .hero-grid-outer{ padding-block: 3rem 3.75rem; }
+      .approach-page .hero-copy{ max-width: 620px; }
+      .approach-page .hero h1{ max-width: 12ch; font-size: clamp(2.25rem, 9.5vw, 3.5rem); }
+    }
+   @media (max-width: 620px){ .approach-page .hero-actions .btn{ width: 100%; justify-content: center; } }
+
+
+.approach-page .approach-hero .hero-copy{ width: 44%; max-width: none; }
+.approach-page .approach-hero h1{ max-width: none; font-size: clamp(2.1rem, 3.35vw, 3.3rem); line-height: 1.08; }
+.approach-page .approach-label{ display: block; color: var(--accent-ink); margin-bottom: 1.2rem; }
+.approach-page .approach-hero .hero-description{ margin-bottom: 0; }
+
+.approach-page .section-head { max-width:760px; margin:0 auto clamp(2rem,4vw,2.8rem); text-align:center; }
+.approach-page .section-head h2 { font-size:clamp(1.7rem,3vw,2.35rem); letter-spacing:-.028em; margin-bottom:.65rem; }
+.approach-page .section-rule { display:block; width:48px; height:3px; background:var(--accent); margin:auto; }
+.approach-page .approach-closing { position:relative; overflow:hidden; background:var(--dark-2); }
+.approach-page .closing-cta-media, .approach-page .closing-cta-overlay { position:absolute; inset:0; }
+.approach-page .closing-cta-media img { width:100%; height:100%; object-fit:cover; object-position:68% center; opacity:.72; }
+.approach-page .closing-cta-overlay { background:linear-gradient(to right,rgba(19,24,27,.94) 0%,rgba(19,24,27,.8) 38%,rgba(19,24,27,.4) 72%,rgba(19,24,27,.5) 100%); }
+.approach-page .closing-inner { position:relative; z-index:1; }
+.approach-page .closing-copy { max-width:650px; }
+.approach-page .closing-copy h2 { color:#fff; font-size:clamp(2rem,4vw,3.5rem); margin-bottom:1rem; }
+.approach-page .closing-copy p { color:rgba(255,255,255,.76); line-height:1.65; margin-bottom:1.5rem; }
+.approach-page .proof-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.5rem; border-top:1px solid rgba(255,255,255,.16); margin-top:3rem; padding-top:2rem; }
+.approach-page .proof-point .approach-icon { margin-left:0; color:rgba(255,255,255,.7); }
+.approach-page .proof-point h3 { color:rgba(255,255,255,.85); font-size:1rem; line-height:1.35; }
+
+/* Approach-only content; shared header, footer, tokens and reveal observer are reused. */
+.approach-page .principles-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(1rem,2vw,1.4rem); }
+.approach-page .principle { padding:clamp(1.5rem,2.2vw,2rem); border:1px solid var(--line); border-radius:var(--r-card); background:var(--paper); }
+.approach-page .approach-icon { display:block; width:32px; height:32px; color:var(--accent-ink); margin-bottom:1.2rem; }
+.approach-page .approach-icon svg { width:100%; height:100%; }
+.approach-page .approach-icon svg, .approach-page .fs-node svg, .approach-page .difference-benefits svg { fill:none; stroke:currentColor; stroke-width:1.35; stroke-linecap:round; stroke-linejoin:round; }
+.approach-page .principle h3, .approach-page .enabler h3 { font-size:1.14rem; line-height:1.25; margin-bottom:.7rem; }
+.approach-page .principle p, .approach-page .enabler p { color:var(--muted); font-size:.93rem; line-height:1.6; }
+.approach-page .methodology-section, .approach-page .difference-section { background:var(--bg); border-block:1px solid var(--line); }
+.approach-page .approach-flow { list-style:none; padding:0; margin:0; }
+.approach-page .flow-step { min-width:0; }
+.approach-page .fs-node svg { width:21px; height:21px; }
+.approach-page .step-number { display:block; color:var(--accent-ink); margin-bottom:.45rem; }
+.approach-page .step-subtitle { color:var(--ink-2); font-size:.88rem; line-height:1.5; margin-bottom:1rem; }
+.approach-page .step-list { list-style:none; padding:0; margin:0; display:grid; gap:.65rem; text-align:left; }
+.approach-page .step-list li { display:flex; gap:.5rem; color:var(--muted); font-size:.84rem; line-height:1.55; }
+.approach-page .step-list li::before { content:""; width:4px; height:4px; flex:none; margin-top:.55em; background:var(--accent); border-radius:50%; }
+.approach-page .enablers-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); }
+.approach-page .enabler { padding:1.5rem clamp(.7rem,1.4vw,1.3rem); text-align:center; border-left:1px solid var(--line-2); }
+.approach-page .enabler:first-child { border-left:0; }
+.approach-page .enabler .approach-icon { margin-inline:auto; }
+.approach-page .difference-grid { display:grid; grid-template-columns:1fr 1.15fr 1fr; align-items:center; gap:clamp(1.5rem,3vw,3rem); }
+.approach-page .difference-image { overflow:hidden; border-radius:var(--r-card); aspect-ratio:4/5; }
+.approach-page .difference-image img { display:block; width:100%; height:100%; object-fit:cover; }
+.approach-page .difference-copy h2 { font-size:clamp(1.7rem,3vw,2.35rem); line-height:1.15; margin-bottom:1.25rem; }
+.approach-page .difference-copy p { color:var(--muted); font-size:.96rem; line-height:1.65; }
+.approach-page .difference-copy .difference-emphasis { color:var(--ink); font-weight:600; margin-bottom:1rem; }
+.approach-page .difference-benefits { list-style:none; margin:0; padding:0; display:grid; gap:1rem; }
+.approach-page .difference-benefits li { display:flex; gap:.7rem; align-items:flex-start; font-size:.93rem; color:var(--ink-2); line-height:1.6; }
+.approach-page .difference-benefits svg { width:20px; height:20px; flex:none; color:var(--accent-ink); margin-top:.15rem; }
+@media(min-width:1101px) { .approach-page .flow-step { text-align:center; } .approach-page .fs-node { margin-inline:auto; } .approach-page .flow::before { left:calc(100% / 12); right:calc(100% / 12); } .approach-page .flow-arrow { top:22px; left:100%; right:auto; transform:translate(-50%,-50%); } }
+@media(min-width:621px) and (max-width:1100px) { .approach-page .approach-flow { grid-template-columns:repeat(3,minmax(0,1fr)); gap:2.5rem 1.5rem; } .approach-page .flow::before, .approach-page .flow-arrow { display:none; } .approach-page .flow-step { padding:0; } .approach-page .fs-node { position:static; margin-bottom:1.4rem; } }
+@media(max-width:1100px) { .approach-page .principles-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .approach-page .enablers-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .approach-page .enabler:nth-child(4) { border-left:0; } .approach-page .difference-grid { grid-template-columns:1fr 1.4fr; } .approach-page .difference-benefits { grid-column:1 / -1; grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:760px) { .approach-page .approach-hero .hero-copy { width:100%; max-width:620px; } .approach-page .approach-hero h1 { font-size:clamp(2.1rem,7vw,3rem); } .approach-page .proof-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:620px) { .approach-page .principles-grid, .approach-page .enablers-grid, .approach-page .difference-grid, .approach-page .difference-benefits, .approach-page .proof-grid { grid-template-columns:1fr; } .approach-page .enabler { border-left:0; } .approach-page .difference-image { aspect-ratio:4/3; } .approach-page .flow::before { bottom:2rem; } }
+@media(prefers-reduced-motion:reduce) { .approach-page .fs-node { background:var(--accent); border-color:var(--accent); color:#fff; transition:none; } }
