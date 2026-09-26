@@ -37,6 +37,23 @@
   }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
+  /* Reveal anything already inside the first viewport immediately. Long blocks can
+     otherwise miss an IntersectionObserver percentage threshold until the user scrolls. */
+  const revealInitialViewport = () => {
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < viewportHeight) {
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  };
+  const queueInitialReveal = () => requestAnimationFrame(revealInitialViewport);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', queueInitialReveal, { once: true });
+  else queueInitialReveal();
+  window.addEventListener('load', queueInitialReveal, { once: true });
+
   /* elegant page-to-page transition — fade + drift + a whisper of blur out, mirrored on
      entrance via pure CSS (no FOUC — the animation is set before any JS can run).
      Rapid clicks are safe: classList.add is idempotent and each click re-arms its own
