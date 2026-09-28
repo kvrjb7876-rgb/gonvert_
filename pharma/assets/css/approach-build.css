@@ -54,9 +54,9 @@
 .approach-page .flow-step { min-width:0; }
 .approach-page .fs-node svg { width:21px; height:21px; }
 .approach-page .step-number { display:block; color:var(--accent-ink); margin-bottom:.45rem; }
-.approach-page .step-subtitle { color:var(--ink-2); font-size:.88rem; line-height:1.5; margin-bottom:1rem; }
-.approach-page .step-list { list-style:none; padding:0; margin:0; display:grid; gap:.65rem; text-align:left; }
-.approach-page .step-list li { display:flex; gap:.5rem; color:var(--muted); font-size:.84rem; line-height:1.55; }
+.approach-page .step-subtitle { color:var(--ink-2); font-size:.88rem; line-height:1.5; margin-bottom:1.15rem; }
+.approach-page .step-list { width:min(100%,18rem); list-style:none; padding:0; margin:0 auto; display:grid; gap:.78rem; text-align:left; }
+.approach-page .step-list li { display:flex; gap:.6rem; color:var(--muted); font-size:.84rem; line-height:1.58; }
 .approach-page .step-list li::before { content:""; width:4px; height:4px; flex:none; margin-top:.55em; background:var(--accent); border-radius:50%; }
 .approach-page .enablers-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); }
 .approach-page .enabler { padding:1.5rem clamp(.7rem,1.4vw,1.3rem); text-align:center; border-left:1px solid var(--line-2); }

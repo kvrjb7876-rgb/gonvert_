@@ -335,6 +335,22 @@
     .value-item:nth-child(4) .value-icon svg { width: 40px; height: 40px; }
     .value-item h3 { grid-column: 2; grid-row: 1; align-self: end; font-size: clamp(1.02rem, 1.4vw, 1.2rem); font-weight: 600; letter-spacing: -0.018em; margin: 0 0 .45rem; }
     .value-item p { grid-column: 2; grid-row: 2; align-self: start; max-width: 34ch; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    /* Trigger the six-card sequence as one coordinated reveal. This prevents
+       lower cards from remaining half-finished when scrolling pauses. */
+    @media (prefers-reduced-motion: no-preference) {
+      .values-panel.reveal { opacity: 1; transform: none; transition: none; }
+      .values-panel.reveal > .value-item {
+        opacity: 0;
+        translate: 0 12px;
+        transition: opacity .66s var(--ease), translate .66s var(--ease), background-color .35s var(--ease), color .35s var(--ease);
+      }
+      .values-panel.reveal.in > .value-item { opacity: 1; translate: 0 0; }
+      .values-panel.reveal > .value-item:nth-child(2) { transition-delay: .07s, .07s, 0s, 0s; }
+      .values-panel.reveal > .value-item:nth-child(3) { transition-delay: .14s, .14s, 0s, 0s; }
+      .values-panel.reveal > .value-item:nth-child(4) { transition-delay: .21s, .21s, 0s, 0s; }
+      .values-panel.reveal > .value-item:nth-child(5) { transition-delay: .28s, .28s, 0s, 0s; }
+      .values-panel.reveal > .value-item:nth-child(6) { transition-delay: .35s, .35s, 0s, 0s; }
+    }
 
     /* =========================================================
        FOOTER  (also the #contact destination)
@@ -357,8 +373,9 @@
     .footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; position: relative; z-index: 1; }
     footer h4 { font-family: var(--f-label); color: rgba(255,255,255,.5); font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; margin: 0 0 1.3rem; }
     footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
-    footer ul a { color: rgba(255,255,255,.75); font-size: .96rem; transition: color .25s var(--ease); }
-    footer ul a:hover { color: var(--accent); }
+    footer ul a, footer ul button { color: rgba(255,255,255,.75); font: inherit; font-size: .96rem; transition: color .25s var(--ease); }
+    footer ul button { appearance: none; border: 0; padding: 0; background: transparent; cursor: pointer; text-align: left; }
+    footer ul a:hover, footer ul button:hover { color: var(--accent); }
     .contact-line { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .9rem; color: rgba(255,255,255,.75); font-size: .96rem; }
     .contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
     .footer-wordmark { position: absolute; right: 13%; bottom: -4%; font-family: var(--f-display); font-weight: 600; font-size: clamp(4.5rem, 13vw, 11rem); color: rgba(255,255,255,.03); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; z-index: 0; }
@@ -554,7 +571,7 @@
       <div class="about-layout">
         <div class="about-intro reveal">
           <div class="about-body">
-            <p>At Gonvert, we bring together more than three decades of engineering, procurement, and construction expertise across the Life Sciences and Renewable Energy sectors. Built on the combined experience of organizations that have delivered complex projects in these industries, we continue to refine proven EPC practices through modern technologies and innovative thinking. Our mission is simple: to help clients invest with confidence and build facilities that perform today while remaining relevant tomorrow.</p>
+            <p>At Gonvert, we bring together over 30 years of engineering, procurement, and construction expertise across the Life Sciences and Renewable Energy sectors. Built on the combined experience of organizations that have delivered complex projects in these industries, we continue to refine proven EPC practices through modern technologies and innovative thinking. Our mission is simple: to help clients invest with confidence and build facilities that perform today while remaining relevant tomorrow.</p>
             <p>In an era of rapid technological change, selecting the right processes, systems, and infrastructure requires both deep technical expertise and sound financial judgment. Our experts guide every stage of the project lifecycle, from feasibility studies and concept development through engineering, procurement, construction, commissioning, and operations. Through data-driven decision-making and rigorous risk management, we ensure that every project delivers measurable business value, regulatory compliance, and operational excellence.</p>
             <p>Whether developing GMP pharmaceutical and vaccine facilities or advanced renewable energy generation and storage assets, Gonvert delivers efficient, resilient, and sustainable facilities that enable our clients to grow with confidence and create lasting value.</p>
           </div>
@@ -605,32 +622,32 @@
       </div>
 
       <div class="values-panel reveal" data-d="1">
-        <article class="value-item reveal">
+        <article class="value-item">
           <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 27 7v8c0 7-4.7 11.5-11 14C9.7 26.5 5 22 5 15V7l11-4Z"></path><path d="m10.5 16 3.5 3.5 7.5-8"></path></svg></span>
           <h3>Integrity First</h3>
           <p>We earn trust through transparency, accountability, and ethical conduct. We honor our commitments and act with professionalism in everything we do.</p>
         </article>
-        <article class="value-item reveal" data-d="1">
-          <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m19.2 4.2 1.1 3.1a9.8 9.8 0 0 1 2.6 1.5l3.2-.8 1.8 3.1-2.4 2.2a10 10 0 0 1 0 3.2l2.4 2.2-1.8 3.1-3.2-.8a9.8 9.8 0 0 1-2.6 1.5l-1.1 3.1h-3.6l-1.1-3.1a9.8 9.8 0 0 1-2.6-1.5l-3.2.8-1.8-3.1 2.4-2.2a10 10 0 0 1 0-3.2l-2.4-2.2 1.8-3.1 3.2.8a9.8 9.8 0 0 1 2.6-1.5l1.1-3.1h3.6Z"></path><circle cx="17.4" cy="14.9" r="3.4"></circle></svg></span>
+        <article class="value-item">
+          <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><g transform="translate(-1.4 1.1)"><path d="m19.2 4.2 1.1 3.1a9.8 9.8 0 0 1 2.6 1.5l3.2-.8 1.8 3.1-2.4 2.2a10 10 0 0 1 0 3.2l2.4 2.2-1.8 3.1-3.2-.8a9.8 9.8 0 0 1-2.6 1.5l-1.1 3.1h-3.6l-1.1-3.1a9.8 9.8 0 0 1-2.6-1.5l-3.2.8-1.8-3.1 2.4-2.2a10 10 0 0 1 0-3.2l-2.4-2.2 1.8-3.1 3.2.8a9.8 9.8 0 0 1 2.6-1.5l1.1-3.1h3.6Z"></path><circle cx="17.4" cy="14.9" r="3.4"></circle></g></svg></span>
           <h3>Engineering Excellence</h3>
           <p>We combine technical expertise, practical experience, and innovation to deliver high-quality, reliable, and future-ready solutions.</p>
         </article>
-        <article class="value-item reveal" data-d="2">
+        <article class="value-item">
           <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="12" cy="10" r="4"></circle><circle cx="23" cy="12" r="3"></circle><path d="M4 26c.7-5 3.3-7.5 8-7.5s7.3 2.5 8 7.5M19 19.5c1-.8 2.3-1.2 4-1.2 3.2 0 4.9 2.1 5 5.7"></path></svg></span>
           <h3>Client Success</h3>
           <p>Our clients’ success is our success. We work closely with them to understand their goals and deliver measurable value at every stage of the project.</p>
         </article>
-        <article class="value-item reveal" data-d="3">
+        <article class="value-item">
           <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 18v-3a8 8 0 0 1 16 0v3"></path><path d="M16 7v11"></path><path d="M10 12h12"></path><path d="M6 18h20l2 4H4l2-4Z"></path></svg></span>
           <h3>Safety &amp; Responsibility</h3>
           <p>We prioritize the safety of people, the protection of communities, and responsible stewardship of the environment in every decision we make.</p>
         </article>
-        <article class="value-item reveal" data-d="4">
+        <article class="value-item">
           <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M10 14a6 6 0 1 1 12 0c0 2.3-1.1 3.6-2.4 4.9-.8.8-1.3 1.6-1.3 2.6h-4.6c0-1-.5-1.8-1.3-2.6C11.1 17.6 10 16.3 10 14Z"></path><path d="M13.5 25h5M14 22h4M16 3v2M6.8 6.8l1.4 1.4M25.2 6.8l-1.4 1.4"></path></svg></span>
           <h3>Innovation &amp; Progress</h3>
           <p>We embrace new ideas, technologies, and smarter ways of working to help our clients meet evolving challenges and opportunities.</p>
         </article>
-        <article class="value-item reveal" data-d="5">
+        <article class="value-item">
           <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25V7M5 25h23"></path><path d="m8 20 5-5 4 3 8-9"></path><path d="M21 9h4v4"></path></svg></span>
           <h3>Continuous Improvement</h3>
           <p>We are committed to learning, improving, and raising our standards every day, ensuring better outcomes for our clients and our organization.</p>
@@ -650,6 +667,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#values">Our Values</a></li>
+            <li><button type="button" data-panel="market-reach" aria-expanded="false" aria-controls="panel-market-reach">Market Reach</button></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>

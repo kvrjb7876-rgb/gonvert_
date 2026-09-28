@@ -71,3 +71,27 @@
 @media(max-width:760px) { .industries-page .industries-hero .hero-copy { width:100%; max-width:620px; } .industries-page .industries-hero h1 { font-size:clamp(2.1rem,7vw,3rem); } .industries-page .proof-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:620px) { .industries-page .industry-grid, .industries-page .reasons-grid, .industries-page .proof-grid { grid-template-columns:1fr; } .industries-page .reason { border-left:0; } }
 @media(prefers-reduced-motion:reduce) { .industries-page .industry-card, .industries-page .industry-card::after, .industries-page .industry-action, .industries-page .industry-action-arrow { transition:none; } .industries-page .industry-card:hover { translate:none; } .industries-page .industry-card:hover .industry-action-arrow, .industries-page .industry-card:focus-visible .industry-action-arrow, .industries-page .industry-card:focus-within .industry-action-arrow { transform:none; } }
+
+/* Page-specific entrance sequence. The hero intentionally remains on the shared
+   reveal system; these rules isolate lower-page motion from card hover transforms. */
+@media (prefers-reduced-motion: no-preference) {
+  .industries-page .industry-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .68s cubic-bezier(.22,1,.36,1), transform .68s cubic-bezier(.22,1,.36,1);
+  }
+  .industries-page .industry-card.industry-reveal {
+    transition: opacity .68s cubic-bezier(.22,1,.36,1), transform .68s cubic-bezier(.22,1,.36,1), translate .32s cubic-bezier(.22,1,.36,1), border-color .32s cubic-bezier(.22,1,.36,1), box-shadow .32s cubic-bezier(.22,1,.36,1);
+  }
+  .industries-page .industry-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industries-page .industry-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
