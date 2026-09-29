@@ -38,7 +38,44 @@
     .contact-panel .btn-on-dark:hover { color: var(--dark); --bc: #fff; }
     .contact-panel .btn-on-dark::before { background: #fff; }
 
+    .inquiry-form { display: grid; gap: .9rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+    .form-field { display: grid; gap: .38rem; }
+    .form-field label { color: rgba(255,255,255,.78); font-family: var(--f-label); font-size: .66rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+    .form-field .optional { color: rgba(255,255,255,.42); font-weight: 400; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; background: rgba(255,255,255,.055); color: #fff; font: inherit; font-size: .92rem; padding: .72rem .8rem; outline: none; transition: border-color .2s ease, background-color .2s ease; }
+    .form-field select { color-scheme: dark; }
+    .form-field select option, .form-field select optgroup { background: #fff; color: #1a1f22; }
+    .native-select-source { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; }
+    .custom-select { position: relative; min-width: 0; }
+    .custom-select-trigger { width: 100%; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: .8rem; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; background: rgba(255,255,255,.055); color: #fff; font: inherit; font-size: .92rem; line-height: 1.35; padding: .72rem .8rem; text-align: left; cursor: pointer; outline: none; transition: border-color .2s ease, background-color .2s ease; }
+    .custom-select-trigger:hover { background: rgba(255,255,255,.075); }
+    .custom-select-trigger:focus-visible, .custom-select.is-open .custom-select-trigger { border-color: var(--accent); background: rgba(255,255,255,.085); box-shadow: 0 0 0 2px rgba(194,112,122,.16); }
+    .custom-select-value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .custom-select-chevron { width: 12px; flex: 0 0 12px; fill: none; stroke: currentColor; stroke-width: 1.6; transition: transform .2s ease; }
+    .custom-select.is-open .custom-select-chevron { transform: rotate(180deg); }
+    .custom-select-menu { position: absolute; z-index: 30; inset: calc(100% + 6px) 0 auto; max-height: min(19rem, 45vh); overflow-y: auto; overscroll-behavior: contain; padding: .35rem; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; background: #20262a; color: rgba(255,255,255,.88); box-shadow: 0 16px 34px rgba(0,0,0,.34); scrollbar-color: rgba(255,255,255,.32) transparent; scrollbar-width: thin; }
+    .custom-select-menu[hidden] { display: none; }
+    .custom-select-group + .custom-select-group { margin-top: .28rem; padding-top: .28rem; border-top: 1px solid rgba(255,255,255,.09); }
+    .custom-select-group-label { padding: .5rem .65rem .3rem; color: rgba(255,255,255,.42); font-family: var(--f-label); font-size: .62rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .custom-select-option { border-radius: 5px; padding: .58rem .65rem; color: rgba(255,255,255,.84); font-size: .88rem; line-height: 1.35; cursor: pointer; }
+    .custom-select-option:hover, .custom-select-option.is-active { background: rgba(194,112,122,.16); color: #fff; }
+    .custom-select-option[aria-selected="true"] { color: var(--accent); font-weight: 600; }
+    .custom-select-option[aria-selected="true"]::before { content: '•'; margin-right: .45rem; color: var(--accent); }
+    .form-field textarea { min-height: 112px; resize: vertical; line-height: 1.55; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--accent); background: rgba(255,255,255,.085); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(255,255,255,.35); }
+    .form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    .inquiry-form .btn-on-dark { margin-top: .15rem; }
+    .inquiry-form .btn-on-dark:disabled { cursor: wait; opacity: .62; }
+    .form-status { min-height: 1.25rem; margin: 0 !important; font-size: .82rem !important; line-height: 1.45; }
+    .form-status.is-success { color: #b9e2c5; }
+    .form-status.is-error { color: #ffc1c5; }
+    .form-status.is-sending { color: rgba(255,255,255,.7); }
+    .cd-v.location-list { display: grid; gap: .2rem; }
+
     @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
 
     #wayfind { background: var(--bg); border-block: 1px solid var(--line); }
     .wayfind-head { max-width: 640px; margin-bottom: clamp(2rem, 4vw, 2.6rem); }
@@ -79,11 +116,11 @@
         <div class="contact-details reveal" data-d="3">
           <div class="cd-row">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-            <div><div class="cd-k">Email</div><a class="cd-v" href="mailto:info@pharma.gonvert.com">info@pharma.gonvert.com</a></div>
+            <div><div class="cd-k">Email</div><a class="cd-v" href="mailto:info@gonvert.com">info@gonvert.com</a></div>
           </div>
           <div class="cd-row">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <div><div class="cd-k">Office</div><span class="cd-v">Istanbul, Türkiye</span></div>
+            <div><div class="cd-k">Offices</div><span class="cd-v location-list"><span>İstanbul, Türkiye</span><span>İzmir, Türkiye</span></span></div>
           </div>
           <div class="cd-row">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -96,10 +133,17 @@
           <span class="label sp-label" style="color:rgba(255,255,255,.5)">Discuss Your Project</span>
           <div class="cp-title">Tell us about the facility.</div>
           <p>Send a short note on the project, sector, and stage — concept, design, compliance, or commissioning — and we'll follow up directly.</p>
-          <a href="mailto:info@pharma.gonvert.com" class="btn btn-on-dark">
-            <span>Email GONVERT Pharma</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <form class="inquiry-form" data-inquiry-form novalidate>
+            <input type="hidden" name="sector" value="Pharma" /><input type="hidden" name="source" value="/pharma/contact" /><input type="hidden" name="category" value="general" /><input type="hidden" name="origin" value="direct" />
+            <div class="form-honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <div class="form-field"><label for="pharma-email">Email Address *</label><input id="pharma-email" name="email" type="email" autocomplete="email" required /></div>
+            <div class="form-row"><div class="form-field"><label for="pharma-name">Name <span class="optional">(optional)</span></label><input id="pharma-name" name="name" autocomplete="name" /></div><div class="form-field"><label for="pharma-company">Company *</label><input id="pharma-company" name="company" autocomplete="organization" required /></div></div>
+            <div class="form-field"><label for="pharma-interest">Request / Interest *</label><select id="pharma-interest" name="interest" data-request-sector="Pharma" required>
+              <option value="general">General Project Inquiry</option>
+            </select></div>
+            <div class="form-field"><label for="pharma-message">Project Description / Message *</label><textarea id="pharma-message" name="message" minlength="10" required placeholder="Tell us about the project, facility, and current stage."></textarea></div>
+            <button type="submit" class="btn btn-on-dark"><span>Send Inquiry →</span></button><p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </div>
@@ -128,6 +172,12 @@
         <a class="proc" href="/pharma/expertise-build.html">
           <span class="p-no mono">03</span>
           <span class="p-body"><span class="p-name">Expertise</span><span class="p-desc">Cleanroom &amp; HVAC systems, and international standards.</span></span>
+          <span></span>
+          <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="proc" href="/pharma/industries-build.html">
+          <span class="p-no mono">04</span>
+          <span class="p-body"><span class="p-name">Industries</span><span class="p-desc">Purpose-built solutions for regulated Life Science sectors.</span></span>
           <span></span>
           <svg class="p-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -162,11 +212,11 @@
           </ul>
           <div class="contact-line" style="margin-top:1.6rem">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-            <a href="mailto:info@pharma.gonvert.com" style="color:rgba(255,255,255,.75)">info@pharma.gonvert.com</a>
+            <a href="mailto:info@gonvert.com" style="color:rgba(255,255,255,.75)">info@gonvert.com</a>
           </div>
           <div class="contact-line">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <span>Istanbul, Türkiye</span>
+            <span class="location-list"><span>İstanbul, Türkiye</span><span>İzmir, Türkiye</span></span>
           </div>
         </div>
       </div>
@@ -177,5 +227,7 @@
   </footer>
 
   <script src="/pharma/assets/js/main.js"></script>
+  <script src="/assets/js/inquiry-options.js"></script>
+  <script src="/assets/js/inquiry-form.js"></script>
 </body>
 </html>

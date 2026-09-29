@@ -54,6 +54,25 @@
   else queueInitialReveal();
   window.addEventListener('load', queueInitialReveal, { once: true });
 
+  const energyContext = (() => {
+    const path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+    const details = {
+      '/energy/services/project-development':['services','project-development-investment-advisory'], '/energy/services/commercial-structuring':['services','commercial-structuring-bankability'],
+      '/energy/services/engineering-design':['services','engineering-design'], '/energy/services/procurement':['services','procurement-advisory-supply-chain-management'],
+      '/energy/services/epcm':['services','epcm-services']
+    };
+    if (details[path]) return details[path];
+    if (path === '/energy/services-build') return ['services','services'];
+    if (path === '/energy/expertise-build') return ['expertise','expertise'];
+    return ['general','general'];
+  })();
+  if (!location.pathname.startsWith('/energy/contact')) document.querySelectorAll('a[href^="/energy/contact"]').forEach(link => {
+    const url = new URL(link.getAttribute('href'), location.origin);
+    url.searchParams.set('category', energyContext[0]); url.searchParams.set('interest', energyContext[1]); url.searchParams.set('source', location.pathname);
+    url.searchParams.set('origin', link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'page-cta');
+    link.setAttribute('href', url.pathname + url.search);
+  });
+
   /* elegant page-to-page transition — fade + drift + a whisper of blur out, mirrored on
      entrance via pure CSS (no FOUC — the animation is set before any JS can run).
      Rapid clicks are safe: classList.add is idempotent and each click re-arms its own

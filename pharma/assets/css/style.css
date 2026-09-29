@@ -377,7 +377,9 @@ footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem;
 footer ul a { color: rgba(255,255,255,.75); font-size: .96rem; transition: color .25s var(--ease); }
 footer ul a:hover { color: var(--accent); }
 footer.site-footer .contact-line { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .9rem; color: rgba(255,255,255,.75); font-size: .96rem; }
-footer.site-footer .contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
+footer.site-footer .location-list { display:grid; gap:.2rem; min-width:0; }
+.contact-line svg, .contact-line > span[aria-hidden="true"] { flex:none; }
+.contact-line svg { flex: none; margin-top: 3px; color: var(--accent); }
 .footer-wordmark { position: absolute; right: max(var(--gutter), calc((100% - var(--maxw)) / 2 + var(--gutter))); bottom: -4%; font-family: var(--f-display); font-weight: 600; font-size: clamp(4.5rem, 13vw, 11rem); color: rgba(255,255,255,.03); letter-spacing: -0.045em; pointer-events: none; user-select: none; line-height: 1; z-index: 0; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.10); padding-block: 1.5rem; display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; justify-content: flex-start; align-items: center; position: relative; z-index: 1; }
 .footer-bottom .label { color: rgba(255,255,255,.4); font-size: .66rem; }
