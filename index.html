@@ -252,7 +252,7 @@
     /* =========================================================
        ABOUT
        ========================================================= */
-    #about { background: var(--bg); border-block: 1px solid var(--line); }
+    #about { background: var(--bg); border-block: 1px solid var(--line); scroll-margin-top: var(--header-h); }
     .about-layout { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: clamp(2.5rem, 5vw, 5rem); align-items: stretch; }
     .about-intro { min-width: 0; }
     .about-body { max-width: 62ch; }
@@ -314,6 +314,7 @@
       inset: 0; opacity: .32; mix-blend-mode: multiply;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
     }
+    #values { scroll-margin-top: var(--header-h); }
     #values .wrap { position: relative; z-index: 1; }
 
     .values-panel {
@@ -750,12 +751,15 @@
       }
     }
 
-    /* always begin at the Hero on load / refresh — never restore or jump to a section */
+    /* Begin at the Hero unless a supported corporate section was requested. */
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-    window.scrollTo(0, 0);
-    window.addEventListener('load', () => window.scrollTo(0, 0));
-    window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+    const requestedSection = ['#about', '#values'].includes(location.hash);
+    if (!requestedSection) {
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      window.scrollTo(0, 0);
+      window.addEventListener('load', () => window.scrollTo(0, 0));
+      window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+    }
 
     /* header shadow on scroll */
     const header = document.getElementById('siteHeader');
@@ -802,6 +806,12 @@
       openPanel(t.dataset.panel, t);
       nav.classList.remove('open'); toggle.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
     }));
+    const requestedPanel = new URLSearchParams(location.search).get('panel');
+    if (requestedPanel === 'market-reach') {
+      const requestedTrigger = document.querySelector('[data-panel="market-reach"]');
+      if (requestedTrigger) requestAnimationFrame(() => openPanel('market-reach', requestedTrigger));
+      history.replaceState(null, '', location.pathname);
+    }
     document.querySelectorAll('.panel-close').forEach(b => b.addEventListener('click', closePanel));
     document.addEventListener('click', (e) => {
       if (activePanel && !e.target.closest('.info-panel') && !e.target.closest('[data-panel]')) closePanel();
