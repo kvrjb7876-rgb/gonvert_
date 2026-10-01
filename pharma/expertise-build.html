@@ -107,15 +107,15 @@
 .expertise-cards .svc[data-d="3"] { --card-reveal-delay: .18s; }
 .expertise-hero .hero-description + .hero-description { margin-top: 1rem; }
 .collaboration-copy { max-width: 760px; margin: 0 auto 2rem; text-align: center; color: var(--muted); }
-.partner-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin: 0; }
-.partner-slot { min-height: 112px; border: 1px solid var(--line); border-radius: var(--r-sm); display: flex; color: var(--muted); overflow: hidden; }
+.partner-strip { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.partner-slot { height: 112px; border: 1px solid var(--line); border-radius: var(--r-sm); display: flex; color: var(--muted); overflow: hidden; }
 .partner-link { width: 100%; padding: 1.25rem 1.5rem; display: flex; justify-content: center; align-items: center; transition: border-color .3s ease, background-color .3s ease; }
 .partner-link:hover, .partner-link:focus-visible { background: rgba(187,32,42,.035); }
 .partner-link:focus-visible { outline: 2px solid var(--pharma); outline-offset: -3px; }
 .partner-logo { display: block; width: auto; max-width: 100%; height: auto; max-height: 72px; object-fit: contain; }
 @media (max-width: 1100px) { .expertise-cards { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 760px) { .partner-strip { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 620px) { .expertise-cards { grid-template-columns: 1fr; } }
+@media (max-width: 980px) { .partner-strip { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 620px) { .expertise-cards, .partner-strip { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -160,6 +160,7 @@
 <li class="partner-slot"><a class="partner-link" href="https://www.easypharma.com/en/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Easypharma official website"><img class="partner-logo" src="/pharma/assets/logos/Partners/EP-Easypharma.svg" alt="Easypharma S.r.l." loading="lazy" decoding="async"></a></li>
 <li class="partner-slot"><a class="partner-link" href="https://pharmait.dk/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Pharma IT official website"><img class="partner-logo" src="/pharma/assets/logos/Partners/PIT-PharmaIT.png" alt="Pharma IT" loading="lazy" decoding="async"></a></li>
 <li class="partner-slot"><a class="partner-link" href="https://www.csvlifesciencegroup.com/en/csv-containment-en/" target="_blank" rel="noopener noreferrer" aria-label="Visit the CSV Containment official website"><img class="partner-logo" src="/pharma/assets/logos/Partners/CSV-CSVContainment.png" alt="CSV Containment" loading="lazy" decoding="async"></a></li>
+<li class="partner-slot"><a class="partner-link" href="https://www.csvlifesciencegroup.com/en/csv-construction-en/" target="_blank" rel="noopener noreferrer" aria-label="Visit the CSV Construction official website"><img class="partner-logo" src="/pharma/assets/logos/Partners/CSV-CSVConstruction.png" alt="CSV Construction" loading="lazy" decoding="async"></a></li>
 </ul></div></section>
 <section class="services-cta" aria-labelledby="services-cta-title"><div class="closing-cta-media" aria-hidden="true"><img src="/pharma/assets/images/Pharma-cta.png" alt="" loading="lazy" decoding="async" /></div><div class="closing-cta-overlay" aria-hidden="true"></div><div class="wrap"><div class="services-cta-content reveal"><h2 id="services-cta-title">Engineering expertise that makes the difference.</h2><div class="services-cta-actions"><a class="btn btn-primary" href="/pharma/contact"><span>Discuss Your Project</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></section>
 </main>
